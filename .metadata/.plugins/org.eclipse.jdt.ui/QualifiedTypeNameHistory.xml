@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.myDsl.Application"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.myDsl.ApplicationElementList"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.myDsl.ApplicationElement"/>
+</qualifiedTypeNameHistroy>
