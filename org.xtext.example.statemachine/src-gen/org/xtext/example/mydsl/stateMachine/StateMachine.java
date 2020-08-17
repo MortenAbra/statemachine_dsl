@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getEvent <em>Event</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getEventReset <em>Event Reset</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getInstructions <em>Instructions</em>}</li>
@@ -29,18 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StateMachine extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute list.
-   * @see org.xtext.example.mydsl.stateMachine.StateMachinePackage#getStateMachine_Name()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getName();
-
   /**
    * Returns the value of the '<em><b>Event</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.stateMachine.Event}.

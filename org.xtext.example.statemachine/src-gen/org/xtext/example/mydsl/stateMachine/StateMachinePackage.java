@@ -68,22 +68,13 @@ public interface StateMachinePackage extends EPackage
   int STATE_MACHINE = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE_MACHINE__NAME = 0;
-
-  /**
    * The feature id for the '<em><b>Event</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__EVENT = 1;
+  int STATE_MACHINE__EVENT = 0;
 
   /**
    * The feature id for the '<em><b>Event Reset</b></em>' reference list.
@@ -92,7 +83,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__EVENT_RESET = 2;
+  int STATE_MACHINE__EVENT_RESET = 1;
 
   /**
    * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
@@ -101,7 +92,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__INSTRUCTIONS = 3;
+  int STATE_MACHINE__INSTRUCTIONS = 2;
 
   /**
    * The feature id for the '<em><b>State</b></em>' containment reference list.
@@ -110,7 +101,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__STATE = 4;
+  int STATE_MACHINE__STATE = 3;
 
   /**
    * The number of structural features of the '<em>State Machine</em>' class.
@@ -119,7 +110,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE_FEATURE_COUNT = 5;
+  int STATE_MACHINE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -288,17 +279,6 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EClass getStateMachine();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.stateMachine.StateMachine#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.stateMachine.StateMachine#getName()
-   * @see #getStateMachine()
-   * @generated
-   */
-  EAttribute getStateMachine_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.stateMachine.StateMachine#getEvent <em>Event</em>}'.
@@ -515,14 +495,6 @@ public interface StateMachinePackage extends EPackage
      * @generated
      */
     EClass STATE_MACHINE = eINSTANCE.getStateMachine();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATE_MACHINE__NAME = eINSTANCE.getStateMachine_Name();
 
     /**
      * The meta object literal for the '<em><b>Event</b></em>' containment reference list feature.

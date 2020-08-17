@@ -3,6 +3,15 @@
  */
 package org.xtext.example.mydsl.scoping;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.xtext.example.mydsl.stateMachine.State;
+import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
 
 /**
  * This class contains custom scoping description.

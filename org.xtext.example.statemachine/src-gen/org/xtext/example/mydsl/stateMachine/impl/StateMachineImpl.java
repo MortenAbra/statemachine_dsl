@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,7 +32,6 @@ import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getEventReset <em>Event Reset</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getInstructions <em>Instructions</em>}</li>
@@ -44,16 +42,6 @@ import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
  */
 public class StateMachineImpl extends MinimalEObjectImpl.Container implements StateMachine
 {
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> name;
-
   /**
    * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -113,21 +101,6 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   protected EClass eStaticClass()
   {
     return StateMachinePackage.Literals.STATE_MACHINE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<String> getName()
-  {
-    if (name == null)
-    {
-      name = new EDataTypeEList<String>(String.class, this, StateMachinePackage.STATE_MACHINE__NAME);
-    }
-    return name;
   }
 
   /**
@@ -220,8 +193,6 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE_MACHINE__NAME:
-        return getName();
       case StateMachinePackage.STATE_MACHINE__EVENT:
         return getEvent();
       case StateMachinePackage.STATE_MACHINE__EVENT_RESET:
@@ -245,10 +216,6 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE_MACHINE__NAME:
-        getName().clear();
-        getName().addAll((Collection<? extends String>)newValue);
-        return;
       case StateMachinePackage.STATE_MACHINE__EVENT:
         getEvent().clear();
         getEvent().addAll((Collection<? extends Event>)newValue);
@@ -279,9 +246,6 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE_MACHINE__NAME:
-        getName().clear();
-        return;
       case StateMachinePackage.STATE_MACHINE__EVENT:
         getEvent().clear();
         return;
@@ -308,8 +272,6 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE_MACHINE__NAME:
-        return name != null && !name.isEmpty();
       case StateMachinePackage.STATE_MACHINE__EVENT:
         return event != null && !event.isEmpty();
       case StateMachinePackage.STATE_MACHINE__EVENT_RESET:
@@ -320,23 +282,6 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
         return state != null && !state.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //StateMachineImpl

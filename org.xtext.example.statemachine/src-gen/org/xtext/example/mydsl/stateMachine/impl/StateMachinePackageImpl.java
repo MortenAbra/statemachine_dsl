@@ -141,20 +141,9 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * @generated
    */
   @Override
-  public EAttribute getStateMachine_Name()
-  {
-    return (EAttribute)stateMachineEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getStateMachine_Event()
   {
-    return (EReference)stateMachineEClass.getEStructuralFeatures().get(1);
+    return (EReference)stateMachineEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -165,7 +154,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
   @Override
   public EReference getStateMachine_EventReset()
   {
-    return (EReference)stateMachineEClass.getEStructuralFeatures().get(2);
+    return (EReference)stateMachineEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -176,7 +165,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
   @Override
   public EReference getStateMachine_Instructions()
   {
-    return (EReference)stateMachineEClass.getEStructuralFeatures().get(3);
+    return (EReference)stateMachineEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -187,7 +176,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
   @Override
   public EReference getStateMachine_State()
   {
-    return (EReference)stateMachineEClass.getEStructuralFeatures().get(4);
+    return (EReference)stateMachineEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -365,7 +354,6 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
 
     // Create classes and their features
     stateMachineEClass = createEClass(STATE_MACHINE);
-    createEAttribute(stateMachineEClass, STATE_MACHINE__NAME);
     createEReference(stateMachineEClass, STATE_MACHINE__EVENT);
     createEReference(stateMachineEClass, STATE_MACHINE__EVENT_RESET);
     createEReference(stateMachineEClass, STATE_MACHINE__INSTRUCTIONS);
@@ -421,7 +409,6 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
 
     // Initialize classes and features; add operations and parameters
     initEClass(stateMachineEClass, StateMachine.class, "StateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStateMachine_Name(), ecorePackage.getEString(), "name", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStateMachine_Event(), this.getEvent(), null, "event", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStateMachine_EventReset(), this.getEvent(), null, "eventReset", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStateMachine_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

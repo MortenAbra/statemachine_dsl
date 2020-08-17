@@ -124,7 +124,7 @@ public class StateMachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     StateMachine returns StateMachine
 	 *
 	 * Constraint:
-	 *     (name+=STRING event+=Event* eventReset+=[Event|ID]* instructions+=Instruction* state+=State*)+
+	 *     (event+=Event* eventReset+=[Event|ID]* instructions+=Instruction* state+=State*)
 	 */
 	protected void sequence_StateMachine(ISerializationContext context, StateMachine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -7,7 +7,6 @@
   <genPackages prefix="StateMachine" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="state" ecorePackage="StateMachine.ecore#/">
     <genClasses ecoreClass="StateMachine.ecore#//StateMachine">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//StateMachine/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/event"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/eventReset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/instructions"/>

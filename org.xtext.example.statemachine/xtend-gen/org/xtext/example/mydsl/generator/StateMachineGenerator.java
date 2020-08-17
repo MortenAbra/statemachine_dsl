@@ -11,9 +11,12 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.mydsl.stateMachine.Instruction;
+import org.xtext.example.mydsl.stateMachine.Move;
+import org.xtext.example.mydsl.stateMachine.State;
 import org.xtext.example.mydsl.stateMachine.StateMachine;
 
 /**
@@ -29,17 +32,18 @@ public class StateMachineGenerator extends AbstractGenerator {
     for (final StateMachine e : _filter) {
       String _name = this.getName(e.eResource());
       String _plus = (_name + ".py");
-      fsa.generateFile(_plus, this.compileStateMachineCode(e));
+      fsa.generateFile(_plus, this.compileStateMachine(e));
     }
   }
   
-  public CharSequence compileStateMachineCode(final StateMachine model) {
+  public CharSequence compileStateMachine(final StateMachine model) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
     String _name = this.getName(model.eResource());
     _builder.append(_name);
     _builder.append("():");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.newLine();
     {
       EList<Instruction> _instructions = model.getInstructions();
@@ -54,6 +58,40 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("def run(self):");
     _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("self.currentState = \"");
+    State _head = IterableExtensions.<State>head(model.getState());
+    String _name_1 = null;
+    if (_head!=null) {
+      _name_1=_head.getName();
+    }
+    _builder.append(_name_1, "\t\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("self.previousEvent = None");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("self.executeActions = False");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("while(True):");
+    _builder.newLine();
+    {
+      EList<State> _state = model.getState();
+      for(final State state : _state) {
+        _builder.append("\t\t\t");
+        CharSequence _generateCode = this.generateCode(state);
+        _builder.append(_generateCode, "\t\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
     {
       EList<Instruction> _instructions_1 = model.getInstructions();
       for(final Instruction c_1 : _instructions_1) {
@@ -65,19 +103,105 @@ public class StateMachineGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("def receiveEvent(self):");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try:");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("n = input(\'Enter state: \')");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("n = str(n)");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("except ValueError:");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("print(\'Integers not allowed! Please try again...\')");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("print(\'Chaning state...\')");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("if __name__ == \'__main__\':");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("state = ");
-    String _name_1 = this.getName(model.eResource());
-    _builder.append(_name_1, "\t");
+    String _name_2 = this.getName(model.eResource());
+    _builder.append(_name_2, "\t");
     _builder.append("()");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("state.run()");
     _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence generateCode(final State state) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("if(self.currentState == \'");
+    String _name = state.getName();
+    _builder.append(_name);
+    _builder.append("\'):");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("if(self.executeActions):");
+    _builder.newLine();
+    {
+      EList<Instruction> _actions = state.getActions();
+      for(final Instruction e : _actions) {
+        _builder.append("\t\t");
+        _builder.append("self.");
+        String _firstLower = StringExtensions.toFirstLower(e.getName());
+        _builder.append(_firstLower, "\t\t");
+        _builder.append("()");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("self.executeActions = False");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("print(\'Current state is:  ");
+    String _name_1 = state.getName();
+    _builder.append(_name_1, "\t");
+    _builder.append(".\')");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("self.previousEvent = self.receiveEvent()");
+    _builder.newLine();
+    {
+      EList<Move> _moves = state.getMoves();
+      for(final Move c : _moves) {
+        _builder.append("\t");
+        _builder.append("if(\'");
+        String _name_2 = c.getEvent().getName();
+        _builder.append(_name_2, "\t");
+        _builder.append("\' == self.previousEvent):");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("self.currentState = \'");
+        String _name_3 = c.getState().getName();
+        _builder.append(_name_3, "\t\t");
+        _builder.append("\'");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("self.executeActions = True");
+        _builder.newLine();
+      }
+    }
     _builder.newLine();
     return _builder;
   }
@@ -90,13 +214,10 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append("(self):");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("print(\"Running instruction ");
+    _builder.append("print(\'Running instruction ");
     String _name = ins.getName();
     _builder.append(_name, "\t");
-    _builder.append(" (");
-    String _value = ins.getValue();
-    _builder.append(_value, "\t");
-    _builder.append("\")");
+    _builder.append("\')");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

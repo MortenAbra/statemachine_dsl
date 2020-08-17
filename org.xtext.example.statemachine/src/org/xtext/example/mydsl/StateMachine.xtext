@@ -3,11 +3,11 @@ grammar org.xtext.example.mydsl.StateMachine with org.eclipse.xtext.common.Termi
 generate stateMachine "http://www.xtext.org/example/mydsl/StateMachine"
 
 StateMachine:
-	("Name" name += STRING
+	{StateMachine}
 	"Event" "block" "(" (event += Event)* ")" "stop"
 	"Reset" "block" "(" (eventReset += [Event])* ")" "stop"
 	"Instructions" "block" "(" (instructions += Instruction)* ")" "stop"
-	(state += State)*)*;
+	(state += State)*;
 
 Instruction:
 	name=ID value=ID;
@@ -17,7 +17,7 @@ Event:
 
 State:
 	"State" name=ID "block" "(" ("action" (actions += [Instruction]) +)?
-	(moves += Move)* ")" "stop";
+	(moves+=Move)* ")" "stop";
 
 Move:
 	event=[Event] "to" state=[State];
