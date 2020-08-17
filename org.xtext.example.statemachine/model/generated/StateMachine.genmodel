@@ -14,11 +14,9 @@
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Instruction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Instruction/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Instruction/value"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Event/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Event/value"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/name"/>

@@ -132,22 +132,13 @@ public interface StateMachinePackage extends EPackage
   int INSTRUCTION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTRUCTION__VALUE = 1;
-
-  /**
    * The number of structural features of the '<em>Instruction</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSTRUCTION_FEATURE_COUNT = 2;
+  int INSTRUCTION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.EventImpl <em>Event</em>}' class.
@@ -169,22 +160,13 @@ public interface StateMachinePackage extends EPackage
   int EVENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT__VALUE = 1;
-
-  /**
    * The number of structural features of the '<em>Event</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 2;
+  int EVENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.StateImpl <em>State</em>}' class.
@@ -346,17 +328,6 @@ public interface StateMachinePackage extends EPackage
   EAttribute getInstruction_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.stateMachine.Instruction#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.stateMachine.Instruction#getValue()
-   * @see #getInstruction()
-   * @generated
-   */
-  EAttribute getInstruction_Value();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Event <em>Event</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -376,17 +347,6 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EAttribute getEvent_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.stateMachine.Event#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.stateMachine.Event#getValue()
-   * @see #getEvent()
-   * @generated
-   */
-  EAttribute getEvent_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.State <em>State</em>}'.
@@ -547,14 +507,6 @@ public interface StateMachinePackage extends EPackage
     EAttribute INSTRUCTION__NAME = eINSTANCE.getInstruction_Name();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INSTRUCTION__VALUE = eINSTANCE.getInstruction_Value();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.EventImpl <em>Event</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -571,14 +523,6 @@ public interface StateMachinePackage extends EPackage
      * @generated
      */
     EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EVENT__VALUE = eINSTANCE.getEvent_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.StateImpl <em>State</em>}' class.

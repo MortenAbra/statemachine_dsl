@@ -22,7 +22,6 @@ import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.InstructionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.InstructionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,26 +47,6 @@ public class InstructionImpl extends MinimalEObjectImpl.Container implements Ins
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,39 +100,12 @@ public class InstructionImpl extends MinimalEObjectImpl.Container implements Ins
    * @generated
    */
   @Override
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StateMachinePackage.INSTRUCTION__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case StateMachinePackage.INSTRUCTION__NAME:
         return getName();
-      case StateMachinePackage.INSTRUCTION__VALUE:
-        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,9 +122,6 @@ public class InstructionImpl extends MinimalEObjectImpl.Container implements Ins
     {
       case StateMachinePackage.INSTRUCTION__NAME:
         setName((String)newValue);
-        return;
-      case StateMachinePackage.INSTRUCTION__VALUE:
-        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -191,9 +140,6 @@ public class InstructionImpl extends MinimalEObjectImpl.Container implements Ins
       case StateMachinePackage.INSTRUCTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case StateMachinePackage.INSTRUCTION__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -210,8 +156,6 @@ public class InstructionImpl extends MinimalEObjectImpl.Container implements Ins
     {
       case StateMachinePackage.INSTRUCTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case StateMachinePackage.INSTRUCTION__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -229,8 +173,6 @@ public class InstructionImpl extends MinimalEObjectImpl.Container implements Ins
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

@@ -207,17 +207,6 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * @generated
    */
   @Override
-  public EAttribute getInstruction_Value()
-  {
-    return (EAttribute)instructionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getEvent()
   {
     return eventEClass;
@@ -232,17 +221,6 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
   public EAttribute getEvent_Name()
   {
     return (EAttribute)eventEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEvent_Value()
-  {
-    return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -361,11 +339,9 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
 
     instructionEClass = createEClass(INSTRUCTION);
     createEAttribute(instructionEClass, INSTRUCTION__NAME);
-    createEAttribute(instructionEClass, INSTRUCTION__VALUE);
 
     eventEClass = createEClass(EVENT);
     createEAttribute(eventEClass, EVENT__NAME);
-    createEAttribute(eventEClass, EVENT__VALUE);
 
     stateEClass = createEClass(STATE);
     createEAttribute(stateEClass, STATE__NAME);
@@ -416,11 +392,9 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInstruction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getInstruction_Value(), ecorePackage.getEString(), "value", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEvent_Value(), ecorePackage.getEString(), "value", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

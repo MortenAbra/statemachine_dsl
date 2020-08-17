@@ -4,20 +4,21 @@ generate stateMachine "http://www.xtext.org/example/mydsl/StateMachine"
 
 StateMachine:
 	{StateMachine}
-	"Event" "block" "(" (event += Event)* ")" "stop"
-	"Reset" "block" "(" (eventReset += [Event])* ")" "stop"
-	"Instructions" "block" "(" (instructions += Instruction)* ")" "stop"
-	(state += State)*;
+	("Events" "block" "{" (event += Event)+ "}")
+	("Reset" "block" "{" (eventReset += [Event])* "}")
+	("Actions" "block" "{" (instructions += Instruction)* "}")
+	state += State*
+;
 
 Instruction:
-	name=ID value=ID;
+	name=ID;
 	
 Event:
-	name=ID value=ID;
+	name=ID;
 
 State:
-	"State" name=ID "block" "(" ("action" (actions += [Instruction]) +)?
-	(moves+=Move)* ")" "stop";
+	"State" name=ID "block" "{" ("action" (actions += [Instruction])+)?
+	(moves+=Move)* "}";
 
 Move:
 	event=[Event] "to" state=[State];

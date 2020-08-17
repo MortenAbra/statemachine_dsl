@@ -61,18 +61,15 @@ public class StateMachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (name=ID value=ID)
+	 *     name=ID
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, StateMachinePackage.Literals.EVENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StateMachinePackage.Literals.EVENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, StateMachinePackage.Literals.EVENT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StateMachinePackage.Literals.EVENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getEventAccess().getValueIDTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -82,18 +79,15 @@ public class StateMachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Instruction returns Instruction
 	 *
 	 * Constraint:
-	 *     (name=ID value=ID)
+	 *     name=ID
 	 */
 	protected void sequence_Instruction(ISerializationContext context, Instruction semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, StateMachinePackage.Literals.INSTRUCTION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StateMachinePackage.Literals.INSTRUCTION__NAME));
-			if (transientValues.isValueTransient(semanticObject, StateMachinePackage.Literals.INSTRUCTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StateMachinePackage.Literals.INSTRUCTION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInstructionAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getInstructionAccess().getValueIDTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getInstructionAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -124,7 +118,7 @@ public class StateMachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     StateMachine returns StateMachine
 	 *
 	 * Constraint:
-	 *     (event+=Event* eventReset+=[Event|ID]* instructions+=Instruction* state+=State*)
+	 *     (event+=Event+ eventReset+=[Event|ID]* instructions+=Instruction* state+=State*)
 	 */
 	protected void sequence_StateMachine(ISerializationContext context, StateMachine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -83,123 +83,117 @@ ruleStateMachine returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='Event'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getStateMachineAccess().getEventKeyword_1());
-		}
-		otherlv_2='block'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getStateMachineAccess().getBlockKeyword_2());
-		}
-		otherlv_3='('
-		{
-			newLeafNode(otherlv_3, grammarAccess.getStateMachineAccess().getLeftParenthesisKeyword_3());
-		}
 		(
+			otherlv_1='Events'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getStateMachineAccess().getEventsKeyword_1_0());
+			}
+			otherlv_2='block'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getStateMachineAccess().getBlockKeyword_1_1());
+			}
+			otherlv_3='{'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getStateMachineAccess().getLeftCurlyBracketKeyword_1_2());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getStateMachineAccess().getEventEventParserRuleCall_4_0());
-				}
-				lv_event_4_0=ruleEvent
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStateMachineRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getStateMachineAccess().getEventEventParserRuleCall_1_3_0());
 					}
-					add(
-						$current,
-						"event",
-						lv_event_4_0,
-						"org.xtext.example.mydsl.StateMachine.Event");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_5=')'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getStateMachineAccess().getRightParenthesisKeyword_5());
-		}
-		otherlv_6='stop'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getStateMachineAccess().getStopKeyword_6());
-		}
-		otherlv_7='Reset'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getResetKeyword_7());
-		}
-		otherlv_8='block'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getStateMachineAccess().getBlockKeyword_8());
-		}
-		otherlv_9='('
-		{
-			newLeafNode(otherlv_9, grammarAccess.getStateMachineAccess().getLeftParenthesisKeyword_9());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getStateMachineRule());
+					lv_event_4_0=ruleEvent
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateMachineRule());
+						}
+						add(
+							$current,
+							"event",
+							lv_event_4_0,
+							"org.xtext.example.mydsl.StateMachine.Event");
+						afterParserOrEnumRuleCall();
 					}
-				}
-				otherlv_10=RULE_ID
-				{
-					newLeafNode(otherlv_10, grammarAccess.getStateMachineAccess().getEventResetEventCrossReference_10_0());
-				}
-			)
-		)*
-		otherlv_11=')'
-		{
-			newLeafNode(otherlv_11, grammarAccess.getStateMachineAccess().getRightParenthesisKeyword_11());
-		}
-		otherlv_12='stop'
-		{
-			newLeafNode(otherlv_12, grammarAccess.getStateMachineAccess().getStopKeyword_12());
-		}
-		otherlv_13='Instructions'
-		{
-			newLeafNode(otherlv_13, grammarAccess.getStateMachineAccess().getInstructionsKeyword_13());
-		}
-		otherlv_14='block'
-		{
-			newLeafNode(otherlv_14, grammarAccess.getStateMachineAccess().getBlockKeyword_14());
-		}
-		otherlv_15='('
-		{
-			newLeafNode(otherlv_15, grammarAccess.getStateMachineAccess().getLeftParenthesisKeyword_15());
-		}
+				)
+			)+
+			otherlv_5='}'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getStateMachineAccess().getRightCurlyBracketKeyword_1_4());
+			}
+		)
 		(
+			otherlv_6='Reset'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getStateMachineAccess().getResetKeyword_2_0());
+			}
+			otherlv_7='block'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getBlockKeyword_2_1());
+			}
+			otherlv_8='{'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getStateMachineAccess().getLeftCurlyBracketKeyword_2_2());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getStateMachineAccess().getInstructionsInstructionParserRuleCall_16_0());
-				}
-				lv_instructions_16_0=ruleInstruction
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStateMachineRule());
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getStateMachineRule());
+						}
 					}
-					add(
-						$current,
-						"instructions",
-						lv_instructions_16_0,
-						"org.xtext.example.mydsl.StateMachine.Instruction");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_17=')'
-		{
-			newLeafNode(otherlv_17, grammarAccess.getStateMachineAccess().getRightParenthesisKeyword_17());
-		}
-		otherlv_18='stop'
-		{
-			newLeafNode(otherlv_18, grammarAccess.getStateMachineAccess().getStopKeyword_18());
-		}
+					otherlv_9=RULE_ID
+					{
+						newLeafNode(otherlv_9, grammarAccess.getStateMachineAccess().getEventResetEventCrossReference_2_3_0());
+					}
+				)
+			)*
+			otherlv_10='}'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getStateMachineAccess().getRightCurlyBracketKeyword_2_4());
+			}
+		)
+		(
+			otherlv_11='Actions'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getStateMachineAccess().getActionsKeyword_3_0());
+			}
+			otherlv_12='block'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getStateMachineAccess().getBlockKeyword_3_1());
+			}
+			otherlv_13='{'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getStateMachineAccess().getLeftCurlyBracketKeyword_3_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStateMachineAccess().getInstructionsInstructionParserRuleCall_3_3_0());
+					}
+					lv_instructions_14_0=ruleInstruction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateMachineRule());
+						}
+						add(
+							$current,
+							"instructions",
+							lv_instructions_14_0,
+							"org.xtext.example.mydsl.StateMachine.Instruction");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			otherlv_15='}'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getStateMachineAccess().getRightCurlyBracketKeyword_3_4());
+			}
+		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStateMachineAccess().getStateStateParserRuleCall_19_0());
+					newCompositeNode(grammarAccess.getStateMachineAccess().getStateStateParserRuleCall_4_0());
 				}
-				lv_state_19_0=ruleState
+				lv_state_16_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStateMachineRule());
@@ -207,7 +201,7 @@ ruleStateMachine returns [EObject current=null]
 					add(
 						$current,
 						"state",
-						lv_state_19_0,
+						lv_state_16_0,
 						"org.xtext.example.mydsl.StateMachine.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -233,40 +227,20 @@ ruleInstruction returns [EObject current=null]
 }:
 	(
 		(
-			(
-				lv_name_0_0=RULE_ID
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getInstructionAccess().getNameIDTerminalRuleCall_0_0());
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getInstructionAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getInstructionRule());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInstructionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				lv_value_1_0=RULE_ID
-				{
-					newLeafNode(lv_value_1_0, grammarAccess.getInstructionAccess().getValueIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInstructionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
 		)
 	)
 ;
@@ -288,40 +262,20 @@ ruleEvent returns [EObject current=null]
 }:
 	(
 		(
-			(
-				lv_name_0_0=RULE_ID
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0());
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getEventRule());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEventRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				lv_value_1_0=RULE_ID
-				{
-					newLeafNode(lv_value_1_0, grammarAccess.getEventAccess().getValueIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEventRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
 		)
 	)
 ;
@@ -368,9 +322,9 @@ ruleState returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getStateAccess().getBlockKeyword_2());
 		}
-		otherlv_3='('
+		otherlv_3='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftParenthesisKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			otherlv_4='action'
@@ -410,13 +364,9 @@ ruleState returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_7=')'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getStateAccess().getRightParenthesisKeyword_6());
-		}
-		otherlv_8='stop'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getStateAccess().getStopKeyword_7());
+			newLeafNode(otherlv_7, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

@@ -32,19 +32,18 @@ public class StateMachineParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, StateMachineGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getStateMachineAccess().getGroup(), "rule__StateMachine__Group__0");
-			builder.put(grammarAccess.getInstructionAccess().getGroup(), "rule__Instruction__Group__0");
-			builder.put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
+			builder.put(grammarAccess.getStateMachineAccess().getGroup_1(), "rule__StateMachine__Group_1__0");
+			builder.put(grammarAccess.getStateMachineAccess().getGroup_2(), "rule__StateMachine__Group_2__0");
+			builder.put(grammarAccess.getStateMachineAccess().getGroup_3(), "rule__StateMachine__Group_3__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 			builder.put(grammarAccess.getStateAccess().getGroup_4(), "rule__State__Group_4__0");
 			builder.put(grammarAccess.getMoveAccess().getGroup(), "rule__Move__Group__0");
-			builder.put(grammarAccess.getStateMachineAccess().getEventAssignment_4(), "rule__StateMachine__EventAssignment_4");
-			builder.put(grammarAccess.getStateMachineAccess().getEventResetAssignment_10(), "rule__StateMachine__EventResetAssignment_10");
-			builder.put(grammarAccess.getStateMachineAccess().getInstructionsAssignment_16(), "rule__StateMachine__InstructionsAssignment_16");
-			builder.put(grammarAccess.getStateMachineAccess().getStateAssignment_19(), "rule__StateMachine__StateAssignment_19");
-			builder.put(grammarAccess.getInstructionAccess().getNameAssignment_0(), "rule__Instruction__NameAssignment_0");
-			builder.put(grammarAccess.getInstructionAccess().getValueAssignment_1(), "rule__Instruction__ValueAssignment_1");
-			builder.put(grammarAccess.getEventAccess().getNameAssignment_0(), "rule__Event__NameAssignment_0");
-			builder.put(grammarAccess.getEventAccess().getValueAssignment_1(), "rule__Event__ValueAssignment_1");
+			builder.put(grammarAccess.getStateMachineAccess().getEventAssignment_1_3(), "rule__StateMachine__EventAssignment_1_3");
+			builder.put(grammarAccess.getStateMachineAccess().getEventResetAssignment_2_3(), "rule__StateMachine__EventResetAssignment_2_3");
+			builder.put(grammarAccess.getStateMachineAccess().getInstructionsAssignment_3_3(), "rule__StateMachine__InstructionsAssignment_3_3");
+			builder.put(grammarAccess.getStateMachineAccess().getStateAssignment_4(), "rule__StateMachine__StateAssignment_4");
+			builder.put(grammarAccess.getInstructionAccess().getNameAssignment(), "rule__Instruction__NameAssignment");
+			builder.put(grammarAccess.getEventAccess().getNameAssignment(), "rule__Event__NameAssignment");
 			builder.put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_4_1(), "rule__State__ActionsAssignment_4_1");
 			builder.put(grammarAccess.getStateAccess().getMovesAssignment_5(), "rule__State__MovesAssignment_5");
