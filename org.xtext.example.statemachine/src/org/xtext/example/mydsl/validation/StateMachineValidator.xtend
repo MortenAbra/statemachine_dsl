@@ -22,14 +22,24 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 	public static final String INVALID_ACTION = "invalidAction";
 	
 	@Check
-	def void checkBlockIsNotEmpty(StateMachine model) {
+	def checkBlockIsNotEmpty(StateMachine model) {
 		if(model.getEvent().isEmpty()) {
 			error("Empty blocks is not allowed!!", StateMachinePackage.Literals.STATE_MACHINE__EVENT);
 		}
 	}
+	
+	@Check
+	def checkForMultipleAttritbuteInstances(StateMachine model){
+		for(Event e : model.event){
+			if(model.event.contains(e.name)){
+				error("Multiple of same event types not allowed!", StateMachinePackage.Literals.STATE_MACHINE__EVENT);
+			}
+		}
+		
+	}
 
 	@Check
-	def void checkEventAttributeStartingWithLowercase(StateMachine model) {
+	def checkEventAttributeStartingWithLowercase(StateMachine model) {
 		for(Event e : model.getEvent()) {
 			var charArray = e.getName().toCharArray();
 			for(i : 0 ..< charArray.length) {
@@ -42,7 +52,7 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 	}
 	
 	@Check
-	def void checkInstructionsAttributeStartingWithLowercase(StateMachine model) {
+	def checkInstructionsAttributeStartingWithLowercase(StateMachine model) {
 		for(Instruction e : model.getInstructions()) {
 			val charArray = e.getName().toCharArray();
 			for(i : 0 ..< charArray.length) {
@@ -56,6 +66,7 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 	
 	@Check
 	def checkStateAttributeStartingWithUpperCase(StateMachine model) {
+		//Note, AbstractStateMachineValidator is recognized as State, therefore importing state by package name
 		for(org.xtext.example.mydsl.stateMachine.State e : model.getState()) {
 			val charArray = e.getName().toCharArray();
 			for(i : 0 ..< charArray.length) {
@@ -68,10 +79,10 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 	}
 	
 	@Check
-	def validateStateNames(Move move){ //Note, AbstractStateMachineValidator is recoqnised as State, therefore importing state manually
+	def validateStateNames(Move move){ //Note, AbstractStateMachineValidator is recognized as State, therefore importing state by package name
 		val state = move.eContainer.getContainerOfType(org.xtext.example.mydsl.stateMachine.State)
 		if(move.state.equals(state)){
-			error("You naughty boy", StateMachinePackage.eINSTANCE.move_State)
+			error("You naughty boy", StateMachinePackage.eINSTANCE.move_State);
 		}
 	}
 	

@@ -34,6 +34,17 @@ public class StateMachineValidator extends AbstractStateMachineValidator {
   }
   
   @Check
+  public void checkForMultipleAttritbuteInstances(final StateMachine model) {
+    EList<Event> _event = model.getEvent();
+    for (final Event e : _event) {
+      boolean _contains = model.getEvent().contains(e.getName());
+      if (_contains) {
+        this.error("Multiple of same event types not allowed!", StateMachinePackage.Literals.STATE_MACHINE__EVENT);
+      }
+    }
+  }
+  
+  @Check
   public void checkEventAttributeStartingWithLowercase(final StateMachine model) {
     EList<Event> _event = model.getEvent();
     for (final Event e : _event) {

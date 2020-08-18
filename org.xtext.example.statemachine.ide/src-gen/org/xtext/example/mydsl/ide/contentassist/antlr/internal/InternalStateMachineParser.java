@@ -24,25 +24,24 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalStateMachineParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Actions", "Events", "Action", "Reset", "State", "Block", "To", "RULE_STRING", "RULE_INT", "RULE_DOUBLE", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Actions", "Events", "Action", "Reset", "State", "Block", "To", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
     };
     public static final int Action=6;
-    public static final int RULE_END=15;
-    public static final int RULE_BEGIN=14;
-    public static final int RULE_STRING=11;
-    public static final int RULE_SL_COMMENT=18;
-    public static final int RULE_DOUBLE=13;
+    public static final int RULE_END=12;
+    public static final int RULE_BEGIN=11;
+    public static final int RULE_STRING=15;
+    public static final int RULE_SL_COMMENT=17;
     public static final int Events=5;
     public static final int To=10;
     public static final int Reset=7;
     public static final int EOF=-1;
-    public static final int RULE_ID=16;
+    public static final int RULE_ID=13;
     public static final int Actions=4;
-    public static final int RULE_WS=19;
-    public static final int RULE_ANY_OTHER=20;
+    public static final int RULE_WS=18;
+    public static final int RULE_ANY_OTHER=19;
     public static final int State=8;
-    public static final int RULE_INT=12;
-    public static final int RULE_ML_COMMENT=17;
+    public static final int RULE_INT=14;
+    public static final int RULE_ML_COMMENT=16;
     public static final int Block=9;
 
     // delegates
@@ -3616,12 +3615,12 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000102L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000018040L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000003040L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000400L});
 
 }

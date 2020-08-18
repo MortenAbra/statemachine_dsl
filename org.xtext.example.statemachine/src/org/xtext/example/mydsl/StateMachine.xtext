@@ -33,15 +33,7 @@ State:
 
 Move:
 	event=[Event] "to" state=[State];
-	
-    
-@Override 
-terminal STRING:
-    '"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-    "'" ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
 
-terminal DOUBLE:
-    INT '.' INT;
     
 terminal BEGIN:
 	'synthetic:BEGIN'

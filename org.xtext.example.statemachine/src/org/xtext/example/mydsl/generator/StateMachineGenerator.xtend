@@ -12,6 +12,7 @@ import org.xtext.example.mydsl.stateMachine.Instruction
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import javax.inject.Inject
 import org.xtext.example.mydsl.stateMachine.State
+import org.xtext.example.mydsl.stateMachine.Event
 
 /**
  * Generates code from your model files on save.
@@ -30,18 +31,14 @@ class StateMachineGenerator extends AbstractGenerator {
 	def CharSequence compileStateMachine(StateMachine model)
 		'''
 			class «model.eResource.name»():
-			
-			
-				«FOR c : model.instructions»
-					«c.generateInstructions»
-				«ENDFOR»
-			
+					
 				def run(self):
 					self.currentState = "«model.state.head?.name»"
 					self.previousEvent = None
 					self.executeActions = True
+					self.running = True
 					
-					while(True):
+					while(self.running):
 						«FOR state : model.state»
 							«state.generateActions»
 						«ENDFOR»
@@ -51,14 +48,15 @@ class StateMachineGenerator extends AbstractGenerator {
 								currentState = '«model.state.head?.name»'
 								executeActions = True
 						«ENDFOR»
-					
-					«FOR c : model.instructions»
-						self.«c.name.toFirstLower»()
-					«ENDFOR»
-					
+
 					
 				def eventHandler(self):
-					«generateInputHandler»
+					«generateInputHandler(model)»
+					
+							
+				«FOR c : model.instructions»
+					«c.generateInstructions»
+				«ENDFOR»
 						
 				
 			if __name__ == '__main__':
@@ -67,17 +65,25 @@ class StateMachineGenerator extends AbstractGenerator {
 
 		'''
 	
-	def generateInputHandler() {
+	def generateInputHandler(StateMachine model) {
 		return
 		'''
-		try:
-			n = input('Enter state: ')
-			if(n != str):
-				print('Error: Only strings allowed..')
-			n = str(n)
-			return n
+		print('Press A for all actions or: ', '\n')
+		n = input('Enter new action: ')
+		if(n == 'A'):
+			«generateEvents(model)»
+		if(n == 'stop'):
+			self.running = False
+		n = str(n)
+		return n
 		'''
 	}
+	
+	def generateEvents(StateMachine model)'''
+		«FOR c : model.event»
+			print('«c.name»')
+		«ENDFOR»
+	'''
 		
 	def generateActions(State state) 
 	'''

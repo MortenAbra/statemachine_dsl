@@ -282,8 +282,6 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	private final EventElements pEvent;
 	private final StateElements pState;
 	private final MoveElements pMove;
-	private final TerminalRule tSTRING;
-	private final TerminalRule tDOUBLE;
 	private final TerminalRule tBEGIN;
 	private final TerminalRule tEND;
 	
@@ -301,8 +299,6 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEvent = new EventElements();
 		this.pState = new StateElements();
 		this.pMove = new MoveElements();
-		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.STRING");
-		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.DOUBLE");
 		this.tBEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.BEGIN");
 		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.END");
 	}
@@ -392,20 +388,6 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		return getMoveAccess().getRule();
 	}
 	
-	//@Override
-	//terminal STRING:
-	//	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | '"'))* '"' |
-	//	"'" ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | "'"))* "'";
-	public TerminalRule getSTRINGRule() {
-		return tSTRING;
-	}
-	
-	//terminal DOUBLE:
-	//	INT '.' INT;
-	public TerminalRule getDOUBLERule() {
-		return tDOUBLE;
-	}
-	
 	//terminal BEGIN:
 	//	'synthetic:BEGIN';
 	public TerminalRule getBEGINRule() {
@@ -428,6 +410,12 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	//	'0'..'9'+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
+	}
+	
+	//terminal STRING:
+	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
+	public TerminalRule getSTRINGRule() {
+		return gaTerminals.getSTRINGRule();
 	}
 	
 	//terminal ML_COMMENT:

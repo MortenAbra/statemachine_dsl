@@ -44,17 +44,7 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("():");
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.newLine();
-    {
-      EList<Instruction> _instructions = model.getInstructions();
-      for(final Instruction c : _instructions) {
-        _builder.append("\t");
-        CharSequence _generateInstructions = this.generateInstructions(c);
-        _builder.append(_generateInstructions, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("def run(self):");
@@ -76,9 +66,12 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append("self.executeActions = True");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("self.running = True");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("while(True):");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("while(self.running):");
     _builder.newLine();
     {
       EList<State> _state = model.getState();
@@ -119,20 +112,6 @@ public class StateMachineGenerator extends AbstractGenerator {
         _builder.newLine();
       }
     }
-    _builder.append("\t\t");
-    _builder.newLine();
-    {
-      EList<Instruction> _instructions_1 = model.getInstructions();
-      for(final Instruction c_1 : _instructions_1) {
-        _builder.append("\t\t");
-        _builder.append("self.");
-        String _firstLower = StringExtensions.toFirstLower(c_1.getName());
-        _builder.append(_firstLower, "\t\t");
-        _builder.append("()");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
@@ -140,9 +119,22 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append("def eventHandler(self):");
     _builder.newLine();
     _builder.append("\t\t");
-    String _generateInputHandler = this.generateInputHandler();
+    String _generateInputHandler = this.generateInputHandler(model);
     _builder.append(_generateInputHandler, "\t\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    {
+      EList<Instruction> _instructions = model.getInstructions();
+      for(final Instruction c : _instructions) {
+        _builder.append("\t");
+        CharSequence _generateInstructions = this.generateInstructions(c);
+        _builder.append(_generateInstructions, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t\t\t");
     _builder.newLine();
     _builder.append("\t");
@@ -162,26 +154,43 @@ public class StateMachineGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public String generateInputHandler() {
+  public String generateInputHandler(final StateMachine model) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("try:");
+    _builder.append("print(\'Press A for all actions or: \', \'\\n\')");
+    _builder.newLine();
+    _builder.append("n = input(\'Enter new action: \')");
+    _builder.newLine();
+    _builder.append("if(n == \'A\'):");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("n = input(\'Enter state: \')");
+    CharSequence _generateEvents = this.generateEvents(model);
+    _builder.append(_generateEvents, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("if(n == \'stop\'):");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("if(n != str):");
+    _builder.append("self.running = False");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("print(\'Error: Only strings allowed..\')");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("n = str(n)");
     _builder.newLine();
-    _builder.append("\t");
     _builder.append("return n");
     _builder.newLine();
     return _builder.toString();
+  }
+  
+  public CharSequence generateEvents(final StateMachine model) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Event> _event = model.getEvent();
+      for(final Event c : _event) {
+        _builder.append("print(\'");
+        String _name = c.getName();
+        _builder.append(_name);
+        _builder.append("\')");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
   }
   
   public CharSequence generateActions(final State state) {
