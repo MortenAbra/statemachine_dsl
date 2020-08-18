@@ -30,41 +30,46 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cEventsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cBlockKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Assignment cEventAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
 		private final RuleCall cEventEventParserRuleCall_1_3_0 = (RuleCall)cEventAssignment_1_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final RuleCall cENDTerminalRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cResetKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Keyword cBlockKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
 		private final Assignment cEventResetAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
 		private final CrossReference cEventResetEventCrossReference_2_3_0 = (CrossReference)cEventResetAssignment_2_3.eContents().get(0);
 		private final RuleCall cEventResetEventIDTerminalRuleCall_2_3_0_1 = (RuleCall)cEventResetEventCrossReference_2_3_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final RuleCall cENDTerminalRuleCall_2_4 = (RuleCall)cGroup_2.eContents().get(4);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cActionsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cBlockKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		private final Assignment cInstructionsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
 		private final RuleCall cInstructionsInstructionParserRuleCall_3_3_0 = (RuleCall)cInstructionsAssignment_3_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
+		private final RuleCall cENDTerminalRuleCall_3_4 = (RuleCall)cGroup_3.eContents().get(4);
 		private final Assignment cStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cStateStateParserRuleCall_4_0 = (RuleCall)cStateAssignment_4.eContents().get(0);
 		
 		//StateMachine:
-		//	{StateMachine} ("Events" "block" "{" event+=Event+ "}") ("Reset" "block" "{" eventReset+=[Event]* "}") ("Actions"
-		//	"block" "{" instructions+=Instruction* "}") state+=State*;
+		//	{StateMachine} ("Events" "block" BEGIN
+		//	event+=Event+
+		//	END) ("Reset" "block" BEGIN
+		//	eventReset+=[Event]*
+		//	END) ("Actions" "block" BEGIN
+		//	instructions+=Instruction*
+		//	END) state+=State*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StateMachine} ("Events" "block" "{" event+=Event+ "}") ("Reset" "block" "{" eventReset+=[Event]* "}") ("Actions"
-		//"block" "{" instructions+=Instruction* "}") state+=State*
+		//{StateMachine} ("Events" "block" BEGIN event+=Event+ END) ("Reset" "block" BEGIN eventReset+=[Event]* END) ("Actions"
+		//"block" BEGIN instructions+=Instruction* END) state+=State*
 		public Group getGroup() { return cGroup; }
 		
 		//{StateMachine}
 		public Action getStateMachineAction_0() { return cStateMachineAction_0; }
 		
-		//("Events" "block" "{" event+=Event+ "}")
+		//("Events" "block" BEGIN event+=Event+ END)
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//"Events"
@@ -73,8 +78,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//"block"
 		public Keyword getBlockKeyword_1_1() { return cBlockKeyword_1_1; }
 		
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1_2() { return cLeftCurlyBracketKeyword_1_2; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1_2() { return cBEGINTerminalRuleCall_1_2; }
 		
 		//event+=Event+
 		public Assignment getEventAssignment_1_3() { return cEventAssignment_1_3; }
@@ -82,10 +87,10 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//Event
 		public RuleCall getEventEventParserRuleCall_1_3_0() { return cEventEventParserRuleCall_1_3_0; }
 		
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_1_4() { return cRightCurlyBracketKeyword_1_4; }
+		//END
+		public RuleCall getENDTerminalRuleCall_1_4() { return cENDTerminalRuleCall_1_4; }
 		
-		//("Reset" "block" "{" eventReset+=[Event]* "}")
+		//("Reset" "block" BEGIN eventReset+=[Event]* END)
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//"Reset"
@@ -94,8 +99,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//"block"
 		public Keyword getBlockKeyword_2_1() { return cBlockKeyword_2_1; }
 		
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_2() { return cLeftCurlyBracketKeyword_2_2; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_2_2() { return cBEGINTerminalRuleCall_2_2; }
 		
 		//eventReset+=[Event]*
 		public Assignment getEventResetAssignment_2_3() { return cEventResetAssignment_2_3; }
@@ -106,10 +111,10 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getEventResetEventIDTerminalRuleCall_2_3_0_1() { return cEventResetEventIDTerminalRuleCall_2_3_0_1; }
 		
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
+		//END
+		public RuleCall getENDTerminalRuleCall_2_4() { return cENDTerminalRuleCall_2_4; }
 		
-		//("Actions" "block" "{" instructions+=Instruction* "}")
+		//("Actions" "block" BEGIN instructions+=Instruction* END)
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//"Actions"
@@ -118,8 +123,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//"block"
 		public Keyword getBlockKeyword_3_1() { return cBlockKeyword_3_1; }
 		
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3_2() { return cLeftCurlyBracketKeyword_3_2; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_3_2() { return cBEGINTerminalRuleCall_3_2; }
 		
 		//instructions+=Instruction*
 		public Assignment getInstructionsAssignment_3_3() { return cInstructionsAssignment_3_3; }
@@ -127,8 +132,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//Instruction
 		public RuleCall getInstructionsInstructionParserRuleCall_3_3_0() { return cInstructionsInstructionParserRuleCall_3_3_0; }
 		
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
+		//END
+		public RuleCall getENDTerminalRuleCall_3_4() { return cENDTerminalRuleCall_3_4; }
 		
 		//state+=State*
 		public Assignment getStateAssignment_4() { return cStateAssignment_4; }
@@ -173,7 +178,7 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cBlockKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cActionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cActionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -181,14 +186,15 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionsInstructionIDTerminalRuleCall_4_1_0_1 = (RuleCall)cActionsInstructionCrossReference_4_1_0.eContents().get(1);
 		private final Assignment cMovesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cMovesMoveParserRuleCall_5_0 = (RuleCall)cMovesAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//State:
-		//	"State" name=ID "block" "{" ("action" actions+=[Instruction]+)?
-		//	moves+=Move* "}";
+		//	"State" name=ID "block" BEGIN ("action" actions+=[Instruction]+)?
+		//	moves+=Move*
+		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"State" name=ID "block" "{" ("action" actions+=[Instruction]+)? moves+=Move* "}"
+		//"State" name=ID "block" BEGIN ("action" actions+=[Instruction]+)? moves+=Move* END
 		public Group getGroup() { return cGroup; }
 		
 		//"State"
@@ -203,8 +209,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//"block"
 		public Keyword getBlockKeyword_2() { return cBlockKeyword_2; }
 		
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
 		
 		//("action" actions+=[Instruction]+)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -227,8 +233,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//Move
 		public RuleCall getMovesMoveParserRuleCall_5_0() { return cMovesMoveParserRuleCall_5_0; }
 		
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		//END
+		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
 	}
 	public class MoveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.Move");
@@ -278,6 +284,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	private final MoveElements pMove;
 	private final TerminalRule tSTRING;
 	private final TerminalRule tDOUBLE;
+	private final TerminalRule tBEGIN;
+	private final TerminalRule tEND;
 	
 	private final Grammar grammar;
 	
@@ -295,6 +303,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMove = new MoveElements();
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.STRING");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.DOUBLE");
+		this.tBEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.BEGIN");
+		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.StateMachine.END");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -325,8 +335,13 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//StateMachine:
-	//	{StateMachine} ("Events" "block" "{" event+=Event+ "}") ("Reset" "block" "{" eventReset+=[Event]* "}") ("Actions"
-	//	"block" "{" instructions+=Instruction* "}") state+=State*;
+	//	{StateMachine} ("Events" "block" BEGIN
+	//	event+=Event+
+	//	END) ("Reset" "block" BEGIN
+	//	eventReset+=[Event]*
+	//	END) ("Actions" "block" BEGIN
+	//	instructions+=Instruction*
+	//	END) state+=State*;
 	public StateMachineElements getStateMachineAccess() {
 		return pStateMachine;
 	}
@@ -356,8 +371,9 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//State:
-	//	"State" name=ID "block" "{" ("action" actions+=[Instruction]+)?
-	//	moves+=Move* "}";
+	//	"State" name=ID "block" BEGIN ("action" actions+=[Instruction]+)?
+	//	moves+=Move*
+	//	END;
 	public StateElements getStateAccess() {
 		return pState;
 	}
@@ -388,6 +404,18 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	//	INT '.' INT;
 	public TerminalRule getDOUBLERule() {
 		return tDOUBLE;
+	}
+	
+	//terminal BEGIN:
+	//	'synthetic:BEGIN';
+	public TerminalRule getBEGINRule() {
+		return tBEGIN;
+	}
+	
+	//terminal END:
+	//	'synthetic:END';
+	public TerminalRule getENDRule() {
+		return tEND;
 	}
 	
 	//terminal ID:

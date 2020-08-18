@@ -1,0 +1,17 @@
+package syntaxHighlighting
+
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration
+import org.eclipse.xtext.ui.editor.utils.TextStyle
+import org.eclipse.swt.graphics.RGB
+
+class StateMachineHighlighting extends DefaultHighlightingConfiguration {
+	
+	public static final String STATE_NAME_ID = "State name id"
+	
+	override TextStyle keywordTextStyle(){
+		val textStyle = new TextStyle();
+		textStyle.setColor(new RGB(250, 0, 0));
+		textStyle;
+	}
+	
+}

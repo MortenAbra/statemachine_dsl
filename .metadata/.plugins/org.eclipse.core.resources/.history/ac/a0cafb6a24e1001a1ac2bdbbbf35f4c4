@@ -1,0 +1,44 @@
+grammar org.xtext.example.mydsl.StateMachine with org.eclipse.xtext.common.Terminals
+
+generate stateMachine "http://www.xtext.org/example/mydsl/StateMachine"
+
+StateMachine:
+	{StateMachine}
+	("Events" "block" BEGIN (event += Event)+ END)
+	("Reset" "block" BEGIN (eventReset += [Event])* END)
+	("Actions" "block" BEGIN (instructions += Instruction)* END)
+	state += State*
+;
+
+Instruction:
+	name=ID;
+	
+Event:
+	name=ID;
+
+State:
+	"State" name=ID "block" BEGIN ("action" (actions += [Instruction])+)?
+	(moves+=Move)* "}";
+
+Move:
+	event=[Event] "to" state=[State];
+	
+    
+@Override 
+terminal STRING:
+    '"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+    "'" ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+
+terminal DOUBLE:
+    INT '.' INT;
+    
+terminal BEGIN:
+	'synthetic:BEGIN'
+;
+
+terminal END:
+	'synthetic:END'
+;
+
+
+

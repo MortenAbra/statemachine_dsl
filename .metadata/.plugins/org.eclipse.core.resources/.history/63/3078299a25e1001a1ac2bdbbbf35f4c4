@@ -1,0 +1,13 @@
+package syntaxHighlighting;
+
+import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator;
+import org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor;
+import org.eclipse.xtext.resource.XtextResource;
+
+public class StateMachineSemanticHighligther extends DefaultSemanticHighlightingCalculator {
+
+	override doProvideHighlighting(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
+		
+	}
+	
+}

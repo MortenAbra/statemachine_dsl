@@ -1,0 +1,22 @@
+package syntaxHighlighting
+
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator
+
+class StateMachineSemanticHighligther extends DefaultSemanticHighlightingCalculator {
+	
+	override doProvideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
+	  
+	  	//
+		var rootObject = resource.getParseResult().getRootASTElement();
+		  
+		for (State ext : EcoreUtil2.getAllContentsOfType(rootObject, External)){  
+			for (INode node : NodeModelUtils.findNodesForFeature(ext, IoTPackage.Literals.EXTERNAL__FUNCTION)){
+				acceptor.addPosition(node.getOffset(), node.getLength(), IoTHighlightingConfiguration.EXTERNAL_ID)
+			} 
+		}    
+		  
+		
+		super.doProvideHighlightingFor(resource, acceptor);
+	}
+	
+}

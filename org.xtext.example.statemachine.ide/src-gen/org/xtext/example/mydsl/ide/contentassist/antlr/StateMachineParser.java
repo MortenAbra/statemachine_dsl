@@ -7,6 +7,8 @@ import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.Map;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.TokenSource;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.xtext.example.mydsl.ide.contentassist.antlr.internal.InternalStateMachineParser;
@@ -65,6 +67,11 @@ public class StateMachineParser extends AbstractContentAssistParser {
 		return result;
 	}
 
+	@Override
+	protected TokenSource createLexer(CharStream stream) {
+		return new StateMachineTokenSource(super.createLexer(stream));
+	}
+	
 	@Override
 	protected String getRuleName(AbstractElement element) {
 		return nameMappings.getRuleName(element);

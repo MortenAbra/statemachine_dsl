@@ -4,9 +4,18 @@ generate stateMachine "http://www.xtext.org/example/mydsl/StateMachine"
 
 StateMachine:
 	{StateMachine}
-	("Events" "block" "{" (event += Event)+ "}")
-	("Reset" "block" "{" (eventReset += [Event])* "}")
-	("Actions" "block" "{" (instructions += Instruction)* "}")
+	("Events" "block" BEGIN
+		(event += Event)+ 
+		END
+	)
+	("Reset" "block" BEGIN 
+		(eventReset += [Event])* 
+		END
+	)
+	("Actions" "block" BEGIN 
+		(instructions += Instruction)* 
+		END
+	)
 	state += State*
 ;
 
@@ -17,8 +26,10 @@ Event:
 	name=ID;
 
 State:
-	"State" name=ID "block" "{" ("action" (actions += [Instruction])+)?
-	(moves+=Move)* "}";
+	"State" name=ID "block" BEGIN
+	 ("action" (actions += [Instruction])+)?
+	(moves+=Move)* 
+	END;
 
 Move:
 	event=[Event] "to" state=[State];
@@ -31,3 +42,14 @@ terminal STRING:
 
 terminal DOUBLE:
     INT '.' INT;
+    
+terminal BEGIN:
+	'synthetic:BEGIN'
+;
+
+terminal END:
+	'synthetic:END'
+;
+
+
+

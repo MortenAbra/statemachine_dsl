@@ -11,6 +11,6 @@ public class StateMachineAntlrTokenFileProvider implements IAntlrTokenFileProvid
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-		return classLoader.getResourceAsStream("org/xtext/example/mydsl/parser/antlr/internal/InternalStateMachine.tokens");
+		return classLoader.getResourceAsStream("org/xtext/example/mydsl/parser/antlr/internal/InternalStateMachineParser.tokens");
 	}
 }

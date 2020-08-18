@@ -1,7 +1,0 @@
-grammar org.xtext.example.mydsl.StateMachine with org.eclipse.xtext.common.Terminals
-
-generate stateMachine "http://www.xtext.org/example/mydsl/StateMachine"
-
-StateMachine:
-	"Event" "is" (event+=Event)* "block"
-;

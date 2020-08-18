@@ -1,0 +1,11 @@
+package syntaxHighlighting
+
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration
+
+class StateMachineHighlighting extends DefaultHighlightingConfiguration {
+	
+	override TextStyle keywordTextStyle(){
+		
+	}
+	
+}

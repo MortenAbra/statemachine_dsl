@@ -1,0 +1,9 @@
+package syntaxHighlighting
+
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator
+
+class StateMachineSemanticHighligther extends DefaultSemanticHighlightingCalculator {
+	
+	
+	
+}

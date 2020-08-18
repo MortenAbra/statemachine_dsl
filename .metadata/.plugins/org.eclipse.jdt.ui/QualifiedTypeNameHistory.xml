@@ -3,4 +3,21 @@
     <fullyQualifiedTypeName name="org.xtext.example.mydsl.myDsl.Application"/>
     <fullyQualifiedTypeName name="org.xtext.example.mydsl.myDsl.ApplicationElementList"/>
     <fullyQualifiedTypeName name="org.xtext.example.mydsl.myDsl.ApplicationElement"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EObject"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EReference"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.scoping.IScope"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.EcoreUtil2"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.scoping.Scopes"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.validation.Check"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.StateMachine"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.common.util.EList"/>
+    <fullyQualifiedTypeName name="java.io.CharArrayReader"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.StateMachinePackage"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.StateMachinePackage.Literals"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.Instruction"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.State"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.validation.AbstractStateMachineValidator"/>
 </qualifiedTypeNameHistroy>

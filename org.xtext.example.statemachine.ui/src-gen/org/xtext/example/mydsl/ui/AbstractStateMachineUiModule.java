@@ -21,6 +21,8 @@ import org.eclipse.xtext.builder.nature.NatureAddingEditorCallback;
 import org.eclipse.xtext.builder.preferences.BuilderPreferenceAccess;
 import org.eclipse.xtext.generator.IContextualOutputConfigurationProvider;
 import org.eclipse.xtext.ide.LexerIdeBindings;
+import org.eclipse.xtext.ide.editor.contentassist.CompletionPrefixProvider;
+import org.eclipse.xtext.ide.editor.contentassist.IndentationAwareCompletionPrefixProvider;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.IContentAssistParser;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 import org.eclipse.xtext.ide.editor.partialEditing.IPartialEditingContentAssistParser;
@@ -71,7 +73,7 @@ import org.eclipse.xtext.ui.shared.Access;
 import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 import org.xtext.example.mydsl.ide.contentassist.antlr.PartialStateMachineContentAssistParser;
 import org.xtext.example.mydsl.ide.contentassist.antlr.StateMachineParser;
-import org.xtext.example.mydsl.ide.contentassist.antlr.internal.InternalStateMachineLexer;
+import org.xtext.example.mydsl.ide.contentassist.antlr.lexer.InternalStateMachineLexer;
 import org.xtext.example.mydsl.ui.contentassist.StateMachineProposalProvider;
 import org.xtext.example.mydsl.ui.labeling.StateMachineDescriptionLabelProvider;
 import org.xtext.example.mydsl.ui.labeling.StateMachineLabelProvider;
@@ -110,7 +112,7 @@ public abstract class AbstractStateMachineUiModule extends DefaultUiModule {
 	public void configureHighlightingLexer(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.HIGHLIGHTING))
-			.to(org.xtext.example.mydsl.parser.antlr.internal.InternalStateMachineLexer.class);
+			.to(org.xtext.example.mydsl.parser.antlr.lexer.InternalStateMachineLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -133,6 +135,11 @@ public abstract class AbstractStateMachineUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureContentAssistLexerProvider(Binder binder) {
 		binder.bind(InternalStateMachineLexer.class).toProvider(LexerProvider.create(InternalStateMachineLexer.class));
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends CompletionPrefixProvider> bindCompletionPrefixProvider() {
+		return IndentationAwareCompletionPrefixProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2

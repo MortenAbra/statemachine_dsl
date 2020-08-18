@@ -1,0 +1,7 @@
+package syntaxHighlighting;
+
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration;
+
+public class StateMachineHighlighter extends DefaultHighlightingConfiguration {
+
+}

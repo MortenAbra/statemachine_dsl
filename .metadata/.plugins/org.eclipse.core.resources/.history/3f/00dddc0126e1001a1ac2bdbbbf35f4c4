@@ -1,0 +1,14 @@
+package syntaxHighlighting
+
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration
+import org.eclipse.xtext.ui.editor.utils.TextStyle
+
+class StateMachineHighlighting extends DefaultHighlightingConfiguration {
+	
+	override TextStyle keywordTextStyle(){
+		val textStyle = new TextStyle();
+		textStyle.setColor(new RGB(150, 0, 150));
+		textStyle;
+	}
+	
+}

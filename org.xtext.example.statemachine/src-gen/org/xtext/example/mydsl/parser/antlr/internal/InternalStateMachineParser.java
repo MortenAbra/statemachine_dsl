@@ -21,26 +21,26 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalStateMachineParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_DOUBLE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Events'", "'block'", "'{'", "'}'", "'Reset'", "'Actions'", "'State'", "'action'", "'to'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Actions", "Events", "Action", "Reset", "State", "Block", "To", "RULE_STRING", "RULE_INT", "RULE_DOUBLE", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
     };
-    public static final int RULE_STRING=5;
-    public static final int RULE_SL_COMMENT=9;
-    public static final int T__19=19;
-    public static final int T__15=15;
-    public static final int RULE_DOUBLE=7;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
-    public static final int T__12=12;
-    public static final int T__13=13;
-    public static final int T__14=14;
+    public static final int Action=6;
+    public static final int RULE_END=15;
+    public static final int RULE_BEGIN=14;
+    public static final int RULE_STRING=11;
+    public static final int RULE_SL_COMMENT=18;
+    public static final int RULE_DOUBLE=13;
+    public static final int Events=5;
+    public static final int To=10;
+    public static final int Reset=7;
     public static final int EOF=-1;
-    public static final int RULE_ID=4;
-    public static final int RULE_WS=10;
-    public static final int RULE_ANY_OTHER=11;
-    public static final int RULE_INT=6;
-    public static final int RULE_ML_COMMENT=8;
-    public static final int T__20=20;
+    public static final int RULE_ID=16;
+    public static final int Actions=4;
+    public static final int RULE_WS=19;
+    public static final int RULE_ANY_OTHER=20;
+    public static final int State=8;
+    public static final int RULE_INT=12;
+    public static final int RULE_ML_COMMENT=17;
+    public static final int Block=9;
 
     // delegates
     // delegators
@@ -56,7 +56,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
         
 
     public String[] getTokenNames() { return InternalStateMachineParser.tokenNames; }
-    public String getGrammarFileName() { return "InternalStateMachine.g"; }
+    public String getGrammarFileName() { return "InternalStateMachineParser.g"; }
 
 
 
@@ -82,7 +82,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStateMachine"
-    // InternalStateMachine.g:64:1: entryRuleStateMachine returns [EObject current=null] : iv_ruleStateMachine= ruleStateMachine EOF ;
+    // InternalStateMachineParser.g:57:1: entryRuleStateMachine returns [EObject current=null] : iv_ruleStateMachine= ruleStateMachine EOF ;
     public final EObject entryRuleStateMachine() throws RecognitionException {
         EObject current = null;
 
@@ -90,8 +90,8 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalStateMachine.g:64:53: (iv_ruleStateMachine= ruleStateMachine EOF )
-            // InternalStateMachine.g:65:2: iv_ruleStateMachine= ruleStateMachine EOF
+            // InternalStateMachineParser.g:57:53: (iv_ruleStateMachine= ruleStateMachine EOF )
+            // InternalStateMachineParser.g:58:2: iv_ruleStateMachine= ruleStateMachine EOF
             {
              newCompositeNode(grammarAccess.getStateMachineRule()); 
             pushFollow(FOLLOW_1);
@@ -118,23 +118,23 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStateMachine"
-    // InternalStateMachine.g:71:1: ruleStateMachine returns [EObject current=null] : ( () (otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}' ) (otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}' ) (otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}' ) ( (lv_state_16_0= ruleState ) )* ) ;
+    // InternalStateMachineParser.g:64:1: ruleStateMachine returns [EObject current=null] : ( () (otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END ) (otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END ) (otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END ) ( (lv_state_16_0= ruleState ) )* ) ;
     public final EObject ruleStateMachine() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
+        Token this_BEGIN_3=null;
+        Token this_END_5=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
-        Token otherlv_8=null;
+        Token this_BEGIN_8=null;
         Token otherlv_9=null;
-        Token otherlv_10=null;
+        Token this_END_10=null;
         Token otherlv_11=null;
         Token otherlv_12=null;
-        Token otherlv_13=null;
-        Token otherlv_15=null;
+        Token this_BEGIN_13=null;
+        Token this_END_15=null;
         EObject lv_event_4_0 = null;
 
         EObject lv_instructions_14_0 = null;
@@ -146,14 +146,14 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalStateMachine.g:77:2: ( ( () (otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}' ) (otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}' ) (otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}' ) ( (lv_state_16_0= ruleState ) )* ) )
-            // InternalStateMachine.g:78:2: ( () (otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}' ) (otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}' ) (otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}' ) ( (lv_state_16_0= ruleState ) )* )
+            // InternalStateMachineParser.g:70:2: ( ( () (otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END ) (otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END ) (otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END ) ( (lv_state_16_0= ruleState ) )* ) )
+            // InternalStateMachineParser.g:71:2: ( () (otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END ) (otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END ) (otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END ) ( (lv_state_16_0= ruleState ) )* )
             {
-            // InternalStateMachine.g:78:2: ( () (otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}' ) (otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}' ) (otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}' ) ( (lv_state_16_0= ruleState ) )* )
-            // InternalStateMachine.g:79:3: () (otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}' ) (otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}' ) (otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}' ) ( (lv_state_16_0= ruleState ) )*
+            // InternalStateMachineParser.g:71:2: ( () (otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END ) (otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END ) (otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END ) ( (lv_state_16_0= ruleState ) )* )
+            // InternalStateMachineParser.g:72:3: () (otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END ) (otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END ) (otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END ) ( (lv_state_16_0= ruleState ) )*
             {
-            // InternalStateMachine.g:79:3: ()
-            // InternalStateMachine.g:80:4: 
+            // InternalStateMachineParser.g:72:3: ()
+            // InternalStateMachineParser.g:73:4: 
             {
 
             				current = forceCreateModelElement(
@@ -163,22 +163,22 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalStateMachine.g:86:3: (otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}' )
-            // InternalStateMachine.g:87:4: otherlv_1= 'Events' otherlv_2= 'block' otherlv_3= '{' ( (lv_event_4_0= ruleEvent ) )+ otherlv_5= '}'
+            // InternalStateMachineParser.g:79:3: (otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END )
+            // InternalStateMachineParser.g:80:4: otherlv_1= Events otherlv_2= Block this_BEGIN_3= RULE_BEGIN ( (lv_event_4_0= ruleEvent ) )+ this_END_5= RULE_END
             {
-            otherlv_1=(Token)match(input,12,FOLLOW_3); 
+            otherlv_1=(Token)match(input,Events,FOLLOW_3); 
 
             				newLeafNode(otherlv_1, grammarAccess.getStateMachineAccess().getEventsKeyword_1_0());
             			
-            otherlv_2=(Token)match(input,13,FOLLOW_4); 
+            otherlv_2=(Token)match(input,Block,FOLLOW_4); 
 
             				newLeafNode(otherlv_2, grammarAccess.getStateMachineAccess().getBlockKeyword_1_1());
             			
-            otherlv_3=(Token)match(input,14,FOLLOW_5); 
+            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_5); 
 
-            				newLeafNode(otherlv_3, grammarAccess.getStateMachineAccess().getLeftCurlyBracketKeyword_1_2());
+            				newLeafNode(this_BEGIN_3, grammarAccess.getStateMachineAccess().getBEGINTerminalRuleCall_1_2());
             			
-            // InternalStateMachine.g:99:4: ( (lv_event_4_0= ruleEvent ) )+
+            // InternalStateMachineParser.g:92:4: ( (lv_event_4_0= ruleEvent ) )+
             int cnt1=0;
             loop1:
             do {
@@ -192,10 +192,10 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalStateMachine.g:100:5: (lv_event_4_0= ruleEvent )
+            	    // InternalStateMachineParser.g:93:5: (lv_event_4_0= ruleEvent )
             	    {
-            	    // InternalStateMachine.g:100:5: (lv_event_4_0= ruleEvent )
-            	    // InternalStateMachine.g:101:6: lv_event_4_0= ruleEvent
+            	    // InternalStateMachineParser.g:93:5: (lv_event_4_0= ruleEvent )
+            	    // InternalStateMachineParser.g:94:6: lv_event_4_0= ruleEvent
             	    {
 
             	    						newCompositeNode(grammarAccess.getStateMachineAccess().getEventEventParserRuleCall_1_3_0());
@@ -232,29 +232,29 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
                 cnt1++;
             } while (true);
 
-            otherlv_5=(Token)match(input,15,FOLLOW_7); 
+            this_END_5=(Token)match(input,RULE_END,FOLLOW_7); 
 
-            				newLeafNode(otherlv_5, grammarAccess.getStateMachineAccess().getRightCurlyBracketKeyword_1_4());
+            				newLeafNode(this_END_5, grammarAccess.getStateMachineAccess().getENDTerminalRuleCall_1_4());
             			
 
             }
 
-            // InternalStateMachine.g:123:3: (otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}' )
-            // InternalStateMachine.g:124:4: otherlv_6= 'Reset' otherlv_7= 'block' otherlv_8= '{' ( (otherlv_9= RULE_ID ) )* otherlv_10= '}'
+            // InternalStateMachineParser.g:116:3: (otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END )
+            // InternalStateMachineParser.g:117:4: otherlv_6= Reset otherlv_7= Block this_BEGIN_8= RULE_BEGIN ( (otherlv_9= RULE_ID ) )* this_END_10= RULE_END
             {
-            otherlv_6=(Token)match(input,16,FOLLOW_3); 
+            otherlv_6=(Token)match(input,Reset,FOLLOW_3); 
 
             				newLeafNode(otherlv_6, grammarAccess.getStateMachineAccess().getResetKeyword_2_0());
             			
-            otherlv_7=(Token)match(input,13,FOLLOW_4); 
+            otherlv_7=(Token)match(input,Block,FOLLOW_4); 
 
             				newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getBlockKeyword_2_1());
             			
-            otherlv_8=(Token)match(input,14,FOLLOW_6); 
+            this_BEGIN_8=(Token)match(input,RULE_BEGIN,FOLLOW_6); 
 
-            				newLeafNode(otherlv_8, grammarAccess.getStateMachineAccess().getLeftCurlyBracketKeyword_2_2());
+            				newLeafNode(this_BEGIN_8, grammarAccess.getStateMachineAccess().getBEGINTerminalRuleCall_2_2());
             			
-            // InternalStateMachine.g:136:4: ( (otherlv_9= RULE_ID ) )*
+            // InternalStateMachineParser.g:129:4: ( (otherlv_9= RULE_ID ) )*
             loop2:
             do {
                 int alt2=2;
@@ -267,10 +267,10 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalStateMachine.g:137:5: (otherlv_9= RULE_ID )
+            	    // InternalStateMachineParser.g:130:5: (otherlv_9= RULE_ID )
             	    {
-            	    // InternalStateMachine.g:137:5: (otherlv_9= RULE_ID )
-            	    // InternalStateMachine.g:138:6: otherlv_9= RULE_ID
+            	    // InternalStateMachineParser.g:130:5: (otherlv_9= RULE_ID )
+            	    // InternalStateMachineParser.g:131:6: otherlv_9= RULE_ID
             	    {
 
             	    						if (current==null) {
@@ -293,29 +293,29 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,15,FOLLOW_8); 
+            this_END_10=(Token)match(input,RULE_END,FOLLOW_8); 
 
-            				newLeafNode(otherlv_10, grammarAccess.getStateMachineAccess().getRightCurlyBracketKeyword_2_4());
+            				newLeafNode(this_END_10, grammarAccess.getStateMachineAccess().getENDTerminalRuleCall_2_4());
             			
 
             }
 
-            // InternalStateMachine.g:154:3: (otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}' )
-            // InternalStateMachine.g:155:4: otherlv_11= 'Actions' otherlv_12= 'block' otherlv_13= '{' ( (lv_instructions_14_0= ruleInstruction ) )* otherlv_15= '}'
+            // InternalStateMachineParser.g:147:3: (otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END )
+            // InternalStateMachineParser.g:148:4: otherlv_11= Actions otherlv_12= Block this_BEGIN_13= RULE_BEGIN ( (lv_instructions_14_0= ruleInstruction ) )* this_END_15= RULE_END
             {
-            otherlv_11=(Token)match(input,17,FOLLOW_3); 
+            otherlv_11=(Token)match(input,Actions,FOLLOW_3); 
 
             				newLeafNode(otherlv_11, grammarAccess.getStateMachineAccess().getActionsKeyword_3_0());
             			
-            otherlv_12=(Token)match(input,13,FOLLOW_4); 
+            otherlv_12=(Token)match(input,Block,FOLLOW_4); 
 
             				newLeafNode(otherlv_12, grammarAccess.getStateMachineAccess().getBlockKeyword_3_1());
             			
-            otherlv_13=(Token)match(input,14,FOLLOW_6); 
+            this_BEGIN_13=(Token)match(input,RULE_BEGIN,FOLLOW_6); 
 
-            				newLeafNode(otherlv_13, grammarAccess.getStateMachineAccess().getLeftCurlyBracketKeyword_3_2());
+            				newLeafNode(this_BEGIN_13, grammarAccess.getStateMachineAccess().getBEGINTerminalRuleCall_3_2());
             			
-            // InternalStateMachine.g:167:4: ( (lv_instructions_14_0= ruleInstruction ) )*
+            // InternalStateMachineParser.g:160:4: ( (lv_instructions_14_0= ruleInstruction ) )*
             loop3:
             do {
                 int alt3=2;
@@ -328,10 +328,10 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalStateMachine.g:168:5: (lv_instructions_14_0= ruleInstruction )
+            	    // InternalStateMachineParser.g:161:5: (lv_instructions_14_0= ruleInstruction )
             	    {
-            	    // InternalStateMachine.g:168:5: (lv_instructions_14_0= ruleInstruction )
-            	    // InternalStateMachine.g:169:6: lv_instructions_14_0= ruleInstruction
+            	    // InternalStateMachineParser.g:161:5: (lv_instructions_14_0= ruleInstruction )
+            	    // InternalStateMachineParser.g:162:6: lv_instructions_14_0= ruleInstruction
             	    {
 
             	    						newCompositeNode(grammarAccess.getStateMachineAccess().getInstructionsInstructionParserRuleCall_3_3_0());
@@ -364,30 +364,30 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_15=(Token)match(input,15,FOLLOW_9); 
+            this_END_15=(Token)match(input,RULE_END,FOLLOW_9); 
 
-            				newLeafNode(otherlv_15, grammarAccess.getStateMachineAccess().getRightCurlyBracketKeyword_3_4());
+            				newLeafNode(this_END_15, grammarAccess.getStateMachineAccess().getENDTerminalRuleCall_3_4());
             			
 
             }
 
-            // InternalStateMachine.g:191:3: ( (lv_state_16_0= ruleState ) )*
+            // InternalStateMachineParser.g:184:3: ( (lv_state_16_0= ruleState ) )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==18) ) {
+                if ( (LA4_0==State) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalStateMachine.g:192:4: (lv_state_16_0= ruleState )
+            	    // InternalStateMachineParser.g:185:4: (lv_state_16_0= ruleState )
             	    {
-            	    // InternalStateMachine.g:192:4: (lv_state_16_0= ruleState )
-            	    // InternalStateMachine.g:193:5: lv_state_16_0= ruleState
+            	    // InternalStateMachineParser.g:185:4: (lv_state_16_0= ruleState )
+            	    // InternalStateMachineParser.g:186:5: lv_state_16_0= ruleState
             	    {
 
             	    					newCompositeNode(grammarAccess.getStateMachineAccess().getStateStateParserRuleCall_4_0());
@@ -443,7 +443,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInstruction"
-    // InternalStateMachine.g:214:1: entryRuleInstruction returns [EObject current=null] : iv_ruleInstruction= ruleInstruction EOF ;
+    // InternalStateMachineParser.g:207:1: entryRuleInstruction returns [EObject current=null] : iv_ruleInstruction= ruleInstruction EOF ;
     public final EObject entryRuleInstruction() throws RecognitionException {
         EObject current = null;
 
@@ -451,8 +451,8 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalStateMachine.g:214:52: (iv_ruleInstruction= ruleInstruction EOF )
-            // InternalStateMachine.g:215:2: iv_ruleInstruction= ruleInstruction EOF
+            // InternalStateMachineParser.g:207:52: (iv_ruleInstruction= ruleInstruction EOF )
+            // InternalStateMachineParser.g:208:2: iv_ruleInstruction= ruleInstruction EOF
             {
              newCompositeNode(grammarAccess.getInstructionRule()); 
             pushFollow(FOLLOW_1);
@@ -479,7 +479,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInstruction"
-    // InternalStateMachine.g:221:1: ruleInstruction returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalStateMachineParser.g:214:1: ruleInstruction returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleInstruction() throws RecognitionException {
         EObject current = null;
 
@@ -489,14 +489,14 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalStateMachine.g:227:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalStateMachine.g:228:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalStateMachineParser.g:220:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalStateMachineParser.g:221:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalStateMachine.g:228:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalStateMachine.g:229:3: (lv_name_0_0= RULE_ID )
+            // InternalStateMachineParser.g:221:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalStateMachineParser.g:222:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalStateMachine.g:229:3: (lv_name_0_0= RULE_ID )
-            // InternalStateMachine.g:230:4: lv_name_0_0= RULE_ID
+            // InternalStateMachineParser.g:222:3: (lv_name_0_0= RULE_ID )
+            // InternalStateMachineParser.g:223:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -538,7 +538,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEvent"
-    // InternalStateMachine.g:249:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
+    // InternalStateMachineParser.g:242:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
     public final EObject entryRuleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -546,8 +546,8 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalStateMachine.g:249:46: (iv_ruleEvent= ruleEvent EOF )
-            // InternalStateMachine.g:250:2: iv_ruleEvent= ruleEvent EOF
+            // InternalStateMachineParser.g:242:46: (iv_ruleEvent= ruleEvent EOF )
+            // InternalStateMachineParser.g:243:2: iv_ruleEvent= ruleEvent EOF
             {
              newCompositeNode(grammarAccess.getEventRule()); 
             pushFollow(FOLLOW_1);
@@ -574,7 +574,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvent"
-    // InternalStateMachine.g:256:1: ruleEvent returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalStateMachineParser.g:249:1: ruleEvent returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -584,14 +584,14 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalStateMachine.g:262:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalStateMachine.g:263:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalStateMachineParser.g:255:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalStateMachineParser.g:256:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalStateMachine.g:263:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalStateMachine.g:264:3: (lv_name_0_0= RULE_ID )
+            // InternalStateMachineParser.g:256:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalStateMachineParser.g:257:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalStateMachine.g:264:3: (lv_name_0_0= RULE_ID )
-            // InternalStateMachine.g:265:4: lv_name_0_0= RULE_ID
+            // InternalStateMachineParser.g:257:3: (lv_name_0_0= RULE_ID )
+            // InternalStateMachineParser.g:258:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -633,7 +633,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalStateMachine.g:284:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalStateMachineParser.g:277:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -641,8 +641,8 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalStateMachine.g:284:46: (iv_ruleState= ruleState EOF )
-            // InternalStateMachine.g:285:2: iv_ruleState= ruleState EOF
+            // InternalStateMachineParser.g:277:46: (iv_ruleState= ruleState EOF )
+            // InternalStateMachineParser.g:278:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -669,17 +669,17 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalStateMachine.g:291:1: ruleState returns [EObject current=null] : (otherlv_0= 'State' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'block' otherlv_3= '{' (otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* otherlv_7= '}' ) ;
+    // InternalStateMachineParser.g:284:1: ruleState returns [EObject current=null] : (otherlv_0= State ( (lv_name_1_0= RULE_ID ) ) otherlv_2= Block this_BEGIN_3= RULE_BEGIN (otherlv_4= Action ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* this_END_7= RULE_END ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
+        Token this_BEGIN_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_7=null;
+        Token this_END_7=null;
         EObject lv_moves_6_0 = null;
 
 
@@ -687,21 +687,21 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalStateMachine.g:297:2: ( (otherlv_0= 'State' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'block' otherlv_3= '{' (otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* otherlv_7= '}' ) )
-            // InternalStateMachine.g:298:2: (otherlv_0= 'State' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'block' otherlv_3= '{' (otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* otherlv_7= '}' )
+            // InternalStateMachineParser.g:290:2: ( (otherlv_0= State ( (lv_name_1_0= RULE_ID ) ) otherlv_2= Block this_BEGIN_3= RULE_BEGIN (otherlv_4= Action ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* this_END_7= RULE_END ) )
+            // InternalStateMachineParser.g:291:2: (otherlv_0= State ( (lv_name_1_0= RULE_ID ) ) otherlv_2= Block this_BEGIN_3= RULE_BEGIN (otherlv_4= Action ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* this_END_7= RULE_END )
             {
-            // InternalStateMachine.g:298:2: (otherlv_0= 'State' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'block' otherlv_3= '{' (otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* otherlv_7= '}' )
-            // InternalStateMachine.g:299:3: otherlv_0= 'State' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'block' otherlv_3= '{' (otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* otherlv_7= '}'
+            // InternalStateMachineParser.g:291:2: (otherlv_0= State ( (lv_name_1_0= RULE_ID ) ) otherlv_2= Block this_BEGIN_3= RULE_BEGIN (otherlv_4= Action ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* this_END_7= RULE_END )
+            // InternalStateMachineParser.g:292:3: otherlv_0= State ( (lv_name_1_0= RULE_ID ) ) otherlv_2= Block this_BEGIN_3= RULE_BEGIN (otherlv_4= Action ( (otherlv_5= RULE_ID ) )+ )? ( (lv_moves_6_0= ruleMove ) )* this_END_7= RULE_END
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_5); 
+            otherlv_0=(Token)match(input,State,FOLLOW_5); 
 
             			newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
             		
-            // InternalStateMachine.g:303:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalStateMachine.g:304:4: (lv_name_1_0= RULE_ID )
+            // InternalStateMachineParser.g:296:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalStateMachineParser.g:297:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalStateMachine.g:304:4: (lv_name_1_0= RULE_ID )
-            // InternalStateMachine.g:305:5: lv_name_1_0= RULE_ID
+            // InternalStateMachineParser.g:297:4: (lv_name_1_0= RULE_ID )
+            // InternalStateMachineParser.g:298:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_3); 
 
@@ -723,30 +723,30 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_4); 
+            otherlv_2=(Token)match(input,Block,FOLLOW_4); 
 
             			newLeafNode(otherlv_2, grammarAccess.getStateAccess().getBlockKeyword_2());
             		
-            otherlv_3=(Token)match(input,14,FOLLOW_10); 
+            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_10); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3());
+            			newLeafNode(this_BEGIN_3, grammarAccess.getStateAccess().getBEGINTerminalRuleCall_3());
             		
-            // InternalStateMachine.g:329:3: (otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+ )?
+            // InternalStateMachineParser.g:322:3: (otherlv_4= Action ( (otherlv_5= RULE_ID ) )+ )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==19) ) {
+            if ( (LA6_0==Action) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // InternalStateMachine.g:330:4: otherlv_4= 'action' ( (otherlv_5= RULE_ID ) )+
+                    // InternalStateMachineParser.g:323:4: otherlv_4= Action ( (otherlv_5= RULE_ID ) )+
                     {
-                    otherlv_4=(Token)match(input,19,FOLLOW_5); 
+                    otherlv_4=(Token)match(input,Action,FOLLOW_5); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getActionKeyword_4_0());
                     			
-                    // InternalStateMachine.g:334:4: ( (otherlv_5= RULE_ID ) )+
+                    // InternalStateMachineParser.g:327:4: ( (otherlv_5= RULE_ID ) )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -756,7 +756,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
                         if ( (LA5_0==RULE_ID) ) {
                             int LA5_1 = input.LA(2);
 
-                            if ( (LA5_1==RULE_ID||LA5_1==15) ) {
+                            if ( ((LA5_1>=RULE_END && LA5_1<=RULE_ID)) ) {
                                 alt5=1;
                             }
 
@@ -766,10 +766,10 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalStateMachine.g:335:5: (otherlv_5= RULE_ID )
+                    	    // InternalStateMachineParser.g:328:5: (otherlv_5= RULE_ID )
                     	    {
-                    	    // InternalStateMachine.g:335:5: (otherlv_5= RULE_ID )
-                    	    // InternalStateMachine.g:336:6: otherlv_5= RULE_ID
+                    	    // InternalStateMachineParser.g:328:5: (otherlv_5= RULE_ID )
+                    	    // InternalStateMachineParser.g:329:6: otherlv_5= RULE_ID
                     	    {
 
                     	    						if (current==null) {
@@ -802,7 +802,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalStateMachine.g:348:3: ( (lv_moves_6_0= ruleMove ) )*
+            // InternalStateMachineParser.g:341:3: ( (lv_moves_6_0= ruleMove ) )*
             loop7:
             do {
                 int alt7=2;
@@ -815,10 +815,10 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalStateMachine.g:349:4: (lv_moves_6_0= ruleMove )
+            	    // InternalStateMachineParser.g:342:4: (lv_moves_6_0= ruleMove )
             	    {
-            	    // InternalStateMachine.g:349:4: (lv_moves_6_0= ruleMove )
-            	    // InternalStateMachine.g:350:5: lv_moves_6_0= ruleMove
+            	    // InternalStateMachineParser.g:342:4: (lv_moves_6_0= ruleMove )
+            	    // InternalStateMachineParser.g:343:5: lv_moves_6_0= ruleMove
             	    {
 
             	    					newCompositeNode(grammarAccess.getStateAccess().getMovesMoveParserRuleCall_5_0());
@@ -851,9 +851,9 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,15,FOLLOW_2); 
+            this_END_7=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_7, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_6());
+            			newLeafNode(this_END_7, grammarAccess.getStateAccess().getENDTerminalRuleCall_6());
             		
 
             }
@@ -878,7 +878,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMove"
-    // InternalStateMachine.g:375:1: entryRuleMove returns [EObject current=null] : iv_ruleMove= ruleMove EOF ;
+    // InternalStateMachineParser.g:368:1: entryRuleMove returns [EObject current=null] : iv_ruleMove= ruleMove EOF ;
     public final EObject entryRuleMove() throws RecognitionException {
         EObject current = null;
 
@@ -886,8 +886,8 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalStateMachine.g:375:45: (iv_ruleMove= ruleMove EOF )
-            // InternalStateMachine.g:376:2: iv_ruleMove= ruleMove EOF
+            // InternalStateMachineParser.g:368:45: (iv_ruleMove= ruleMove EOF )
+            // InternalStateMachineParser.g:369:2: iv_ruleMove= ruleMove EOF
             {
              newCompositeNode(grammarAccess.getMoveRule()); 
             pushFollow(FOLLOW_1);
@@ -914,7 +914,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMove"
-    // InternalStateMachine.g:382:1: ruleMove returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( (otherlv_2= RULE_ID ) ) ) ;
+    // InternalStateMachineParser.g:375:1: ruleMove returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= To ( (otherlv_2= RULE_ID ) ) ) ;
     public final EObject ruleMove() throws RecognitionException {
         EObject current = null;
 
@@ -926,17 +926,17 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalStateMachine.g:388:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( (otherlv_2= RULE_ID ) ) ) )
-            // InternalStateMachine.g:389:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( (otherlv_2= RULE_ID ) ) )
+            // InternalStateMachineParser.g:381:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= To ( (otherlv_2= RULE_ID ) ) ) )
+            // InternalStateMachineParser.g:382:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= To ( (otherlv_2= RULE_ID ) ) )
             {
-            // InternalStateMachine.g:389:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( (otherlv_2= RULE_ID ) ) )
-            // InternalStateMachine.g:390:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= 'to' ( (otherlv_2= RULE_ID ) )
+            // InternalStateMachineParser.g:382:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= To ( (otherlv_2= RULE_ID ) ) )
+            // InternalStateMachineParser.g:383:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= To ( (otherlv_2= RULE_ID ) )
             {
-            // InternalStateMachine.g:390:3: ( (otherlv_0= RULE_ID ) )
-            // InternalStateMachine.g:391:4: (otherlv_0= RULE_ID )
+            // InternalStateMachineParser.g:383:3: ( (otherlv_0= RULE_ID ) )
+            // InternalStateMachineParser.g:384:4: (otherlv_0= RULE_ID )
             {
-            // InternalStateMachine.g:391:4: (otherlv_0= RULE_ID )
-            // InternalStateMachine.g:392:5: otherlv_0= RULE_ID
+            // InternalStateMachineParser.g:384:4: (otherlv_0= RULE_ID )
+            // InternalStateMachineParser.g:385:5: otherlv_0= RULE_ID
             {
 
             					if (current==null) {
@@ -953,15 +953,15 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,20,FOLLOW_5); 
+            otherlv_1=(Token)match(input,To,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMoveAccess().getToKeyword_1());
             		
-            // InternalStateMachine.g:407:3: ( (otherlv_2= RULE_ID ) )
-            // InternalStateMachine.g:408:4: (otherlv_2= RULE_ID )
+            // InternalStateMachineParser.g:400:3: ( (otherlv_2= RULE_ID ) )
+            // InternalStateMachineParser.g:401:4: (otherlv_2= RULE_ID )
             {
-            // InternalStateMachine.g:408:4: (otherlv_2= RULE_ID )
-            // InternalStateMachine.g:409:5: otherlv_2= RULE_ID
+            // InternalStateMachineParser.g:401:4: (otherlv_2= RULE_ID )
+            // InternalStateMachineParser.g:402:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -1006,14 +1006,14 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000088010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000018000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000018040L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000400L});
 
 }
