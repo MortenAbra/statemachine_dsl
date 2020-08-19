@@ -17,6 +17,8 @@ public class StateMachineHighlighting extends DefaultHighlightingConfiguration {
   
   public static final String RESET_EVENT_ID = "Reset_event_id";
   
+  public static final String STATE_NAME_BLOCK = "State_block_id";
+  
   @Override
   public void configure(final IHighlightingConfigurationAcceptor acceptor) {
     acceptor.acceptDefaultHighlighting(DefaultHighlightingConfiguration.KEYWORD_ID, "Keyword", this.keywordTextStyle());
@@ -29,9 +31,21 @@ public class StateMachineHighlighting extends DefaultHighlightingConfiguration {
     acceptor.acceptDefaultHighlighting(DefaultHighlightingConfiguration.INVALID_TOKEN_ID, "Invalid Symbol", this.errorTextStyle());
     acceptor.acceptDefaultHighlighting(StateMachineHighlighting.STATE_NAME_ID, "State name", this.stateNameTextStyle());
     acceptor.acceptDefaultHighlighting(StateMachineHighlighting.STATE_MOVE_ID, "State move ID", this.stateMoveNameTextStyle());
+    acceptor.acceptDefaultHighlighting(StateMachineHighlighting.STATE_NAME_BLOCK, "State block ID", this.stateBlockNameTextStyle());
     acceptor.acceptDefaultHighlighting(StateMachineHighlighting.EVENT_NAME_ID, "Event name ID", this.eventNameTextStyle());
     acceptor.acceptDefaultHighlighting(StateMachineHighlighting.EVENT_MOVE_ID, "Event move ID", this.eventMoveTextStyle());
     acceptor.acceptDefaultHighlighting(StateMachineHighlighting.RESET_EVENT_ID, "Reset event id", this.resetNameTextStyle());
+  }
+  
+  public TextStyle stateBlockNameTextStyle() {
+    TextStyle _xblockexpression = null;
+    {
+      final TextStyle textStyle = new TextStyle();
+      RGB _rGB = new RGB(250, 0, 0);
+      textStyle.setColor(_rGB);
+      _xblockexpression = textStyle;
+    }
+    return _xblockexpression;
   }
   
   public TextStyle resetNameTextStyle() {

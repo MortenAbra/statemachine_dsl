@@ -12,7 +12,7 @@ class StateMachineHighlighting extends DefaultHighlightingConfiguration {
 	public static final String EVENT_NAME_ID = "Event_name_id"
 	public static final String EVENT_MOVE_ID = "Event_move_id"
 	public static final String RESET_EVENT_ID = "Reset_event_id"
-	
+	public static final String STATE_NAME_BLOCK = "State_block_id"
 
 	
 	override configure(IHighlightingConfigurationAcceptor acceptor) {
@@ -26,9 +26,16 @@ class StateMachineHighlighting extends DefaultHighlightingConfiguration {
 		acceptor.acceptDefaultHighlighting(INVALID_TOKEN_ID, "Invalid Symbol", errorTextStyle());
 		acceptor.acceptDefaultHighlighting(STATE_NAME_ID, "State name", stateNameTextStyle())
 		acceptor.acceptDefaultHighlighting(STATE_MOVE_ID, "State move ID", stateMoveNameTextStyle())
+		acceptor.acceptDefaultHighlighting(STATE_NAME_BLOCK, "State block ID", stateBlockNameTextStyle())
 		acceptor.acceptDefaultHighlighting(EVENT_NAME_ID, "Event name ID", eventNameTextStyle())
 		acceptor.acceptDefaultHighlighting(EVENT_MOVE_ID, "Event move ID", eventMoveTextStyle())
 		acceptor.acceptDefaultHighlighting(RESET_EVENT_ID, "Reset event id", resetNameTextStyle())
+	}
+	
+	def TextStyle stateBlockNameTextStyle() {
+		val textStyle = new TextStyle();
+		textStyle.setColor(new RGB(250, 0, 0));
+		textStyle;
 	}
 	
 	def TextStyle resetNameTextStyle() {

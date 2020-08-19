@@ -10,6 +10,8 @@ import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor
 import org.xtext.example.mydsl.stateMachine.Move
 import org.xtext.example.mydsl.stateMachine.Event
+import org.xtext.example.mydsl.stateMachine.Gate
+import org.xtext.example.mydsl.stateMachine.Block
 
 class StateMachineSemanticHighligther extends DefaultSemanticHighlightingCalculator {
 	
@@ -44,6 +46,12 @@ class StateMachineSemanticHighligther extends DefaultSemanticHighlightingCalcula
 		for (Event ext : EcoreUtil2.getAllContentsOfType(rootObject, Event)){  
 			for (INode node : NodeModelUtils.findNodesForFeature(ext, StateMachinePackage.Literals.STATE_MACHINE__EVENT_RESET)){
 				acceptor.addPosition(node.getOffset(), node.getLength(), StateMachineHighlighting.RESET_EVENT_ID)
+			} 
+		}
+		
+		for (Block ext : EcoreUtil2.getAllContentsOfType(rootObject, Block)){  
+			for (INode node : NodeModelUtils.findNodesForFeature(ext, StateMachinePackage.Literals.BLOCK__STATE)){
+				acceptor.addPosition(node.getOffset(), node.getLength(), StateMachineHighlighting.STATE_NAME_BLOCK)
 			} 
 		}
 		  

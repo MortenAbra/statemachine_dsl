@@ -13,6 +13,7 @@ import org.xtext.example.mydsl.stateMachine.State
 import org.eclipse.xtext.scoping.Scopes
 import org.xtext.example.mydsl.stateMachine.Gate
 import org.xtext.example.mydsl.stateMachine.Block
+import org.xtext.example.mydsl.stateMachine.Move
 
 /**
  * This class contains custom scoping description.
@@ -23,22 +24,32 @@ import org.xtext.example.mydsl.stateMachine.Block
 class StateMachineScopeProvider extends AbstractStateMachineScopeProvider {
 	
 //	override IScope getScope(EObject object, EReference reference){
-//		if(object instanceof State){
+//		if(object instanceof Move){
 //			val sm = object.eContainer.getContainerOfType(StateMachine)
 //			val gates = sm.gate
 //			
 //			val array = newArrayList
 //			if(!gates.isEmpty){
-//				val state = (object as State)
+//				val state = object.eContainer.getContainerOfType(State)
+//				try{
 //				gates.forEach[
 //					(it as Gate).block.forEach[
-//						if(state.actions.equals((it as Block).action)){
-//							val gblock = (it as Block).state
-//							array.add(gblock)
+//						state.actions.forEach[
+//							if(it.equals((it as Block).action)){
+//								val gblock = (it as Block).state
+//								array.add(gblock)
+//							}
+//						]
+//						//if(state.state.actions.equals((it as Block).action)){
+//							//val gblock = (it as Block).state
+//							//array.add(gblock)
 //							
-//						}
+//						//}
 //					]
 //				]
+//				} catch(Exception e) {
+//					println(e)
+//				}
 //				
 //				//sm.state - array
 //				val testlist = newArrayList
@@ -48,10 +59,14 @@ class StateMachineScopeProvider extends AbstractStateMachineScopeProvider {
 //					print(test)
 //					
 //				}
-//				print(array)
+//							
 //				
+//				
+//				if((object as Move).event.event.name == 'turn_off'){
+//					println(array)
+//					println(testlist)
+//				}
 //				testlist.removeAll(array.toList)
-//				
 //				
 //				
 //				

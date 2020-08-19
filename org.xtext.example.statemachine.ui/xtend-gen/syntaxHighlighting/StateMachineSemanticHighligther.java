@@ -8,6 +8,7 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
+import org.xtext.example.mydsl.stateMachine.Block;
 import org.xtext.example.mydsl.stateMachine.Event;
 import org.xtext.example.mydsl.stateMachine.Move;
 import org.xtext.example.mydsl.stateMachine.State;
@@ -52,6 +53,13 @@ public class StateMachineSemanticHighligther extends DefaultSemanticHighlighting
       List<INode> _findNodesForFeature_4 = NodeModelUtils.findNodesForFeature(ext_4, StateMachinePackage.Literals.STATE_MACHINE__EVENT_RESET);
       for (final INode node_4 : _findNodesForFeature_4) {
         acceptor.addPosition(node_4.getOffset(), node_4.getLength(), StateMachineHighlighting.RESET_EVENT_ID);
+      }
+    }
+    List<Block> _allContentsOfType_5 = EcoreUtil2.<Block>getAllContentsOfType(rootObject, Block.class);
+    for (final Block ext_5 : _allContentsOfType_5) {
+      List<INode> _findNodesForFeature_5 = NodeModelUtils.findNodesForFeature(ext_5, StateMachinePackage.Literals.BLOCK__STATE);
+      for (final INode node_5 : _findNodesForFeature_5) {
+        acceptor.addPosition(node_5.getOffset(), node_5.getLength(), StateMachineHighlighting.STATE_NAME_BLOCK);
       }
     }
     super.doProvideHighlightingFor(resource, acceptor);
