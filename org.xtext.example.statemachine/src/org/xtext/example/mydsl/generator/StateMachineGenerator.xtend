@@ -8,11 +8,10 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.example.mydsl.stateMachine.StateMachine
-import org.xtext.example.mydsl.stateMachine.Instruction
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-import javax.inject.Inject
 import org.xtext.example.mydsl.stateMachine.State
-import org.xtext.example.mydsl.stateMachine.Event
+import org.xtext.example.mydsl.stateMachine.Instruction
+import org.xtext.example.mydsl.stateMachine.Trigger
+import org.xtext.example.mydsl.stateMachine.Expression
 
 /**
  * Generates code from your model files on save.
@@ -31,32 +30,33 @@ class StateMachineGenerator extends AbstractGenerator {
 	def CharSequence compileStateMachine(StateMachine model)
 		'''
 			class «model.eResource.name»():
+			
+				def inputHandler(self):
+					«generateInputHandler(model)»
+																
+				«FOR c : model.instructions»
+					«c.generateInstructions»
+				«ENDFOR»
 					
 				def run(self):
+					print('Press A for all actions or: ', '\n')
 					self.currentState = "«model.state.head?.name»"
 					self.previousEvent = None
-					self.executeActions = True
+					self.previousState = None
 					self.running = True
 					
 					while(self.running):
 						«FOR state : model.state»
-							«state.generateActions»
+							«state.generateStates»
 						«ENDFOR»
 						«FOR eventReset : model.eventReset»
 							if(self.previousEvent == '«eventReset.name»'):
 								print('Resetting')
 								currentState = '«model.state.head?.name»'
-								executeActions = True
 						«ENDFOR»
 
 					
-				def eventHandler(self):
-					«generateInputHandler(model)»
-					
-							
-				«FOR c : model.instructions»
-					«c.generateInstructions»
-				«ENDFOR»
+
 						
 				
 			if __name__ == '__main__':
@@ -66,15 +66,14 @@ class StateMachineGenerator extends AbstractGenerator {
 		'''
 	
 	def generateInputHandler(StateMachine model) {
-		return
 		'''
-		print('Press A for all actions or: ', '\n')
 		n = input('Enter new action: ')
+		n = str(n)
 		if(n == 'A'):
 			«generateEvents(model)»
 		if(n == 'stop'):
 			self.running = False
-		n = str(n)
+		
 		return n
 		'''
 	}
@@ -85,24 +84,35 @@ class StateMachineGenerator extends AbstractGenerator {
 		«ENDFOR»
 	'''
 		
-	def generateActions(State state) 
+	def generateStates(State state) 
 	'''
 		if(self.currentState == '«state.name»'):
-			if(self.executeActions):
-				«FOR e : state.actions»
-					self.«e.name.toFirstLower»()
-				«ENDFOR»
-				self.executeActions = False
 				
+			«FOR e : state.actions»
+				self.«e.name.toFirstLower»()
+			«ENDFOR»
 			print('Current state is:  «state.name».')
-			self.previousEvent = self.eventHandler()
+			self.previousEvent = self.inputHandler()
+			self.previousState = self.currentState
 			«FOR c : state.moves»
-				if('«c.event.name»' == self.previousEvent):
+				if(self.previousEvent == '«c.event.extractEventName»'):
 					self.currentState = '«c.state.name»'
-					self.executeActions = True
+					print('Previous state is: ',str(self.previousState))
 			«ENDFOR»
 
 	'''
+	
+	def String extractEventName(Trigger trig){
+		if(!(trig instanceof Expression)){
+			return trig.event.name
+		} else {
+			return (trig as Expression).stringify
+		}
+	}
+	
+	def String stringify(Expression exp){
+		return '"dummy_expression"'
+	}
 	
 	
 	def generateInstructions(Instruction ins)

@@ -1,0 +1,5 @@
+package hover
+
+class StateMachineHoverProvider {
+	
+}

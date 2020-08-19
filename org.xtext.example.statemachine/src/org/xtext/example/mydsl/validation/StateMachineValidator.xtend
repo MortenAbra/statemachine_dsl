@@ -4,12 +4,12 @@
 package org.xtext.example.mydsl.validation
 
 import org.xtext.example.mydsl.stateMachine.StateMachine
-import org.xtext.example.mydsl.stateMachine.Instruction
 import org.xtext.example.mydsl.stateMachine.StateMachinePackage
 import org.xtext.example.mydsl.stateMachine.Event
 import org.eclipse.xtext.validation.Check
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import org.xtext.example.mydsl.stateMachine.Move
+import org.xtext.example.mydsl.stateMachine.Instruction
 
 /**
  * This class contains custom validation rules. 
@@ -28,15 +28,15 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 		}
 	}
 	
-	@Check
-	def checkForMultipleAttritbuteInstances(StateMachine model){
-		for(Event e : model.event){
-			if(model.event.contains(e.name)){
-				error("Multiple of same event types not allowed!", StateMachinePackage.Literals.STATE_MACHINE__EVENT);
-			}
-		}
-		
-	}
+//	@Check
+//	def checkForMultipleAttritbuteInstances(StateMachine model){
+//		for(Event e : model.event){
+//			if(model.event.contains(e)){
+//				error("Multiple of same event types not allowed!", StateMachinePackage.Literals.STATE_MACHINE__EVENT);
+//			}
+//		}
+//		
+//	}
 
 	@Check
 	def checkEventAttributeStartingWithLowercase(StateMachine model) {
@@ -53,7 +53,7 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 	
 	@Check
 	def checkInstructionsAttributeStartingWithLowercase(StateMachine model) {
-		for(Instruction e : model.getInstructions()) {
+		for(Instruction e : model.instructions) {
 			val charArray = e.getName().toCharArray();
 			for(i : 0 ..< charArray.length) {
 				if(!Character.isLowerCase(charArray.get(0))) {
@@ -79,11 +79,14 @@ class StateMachineValidator extends AbstractStateMachineValidator {
 	}
 	
 	@Check
-	def validateStateNames(Move move){ //Note, AbstractStateMachineValidator is recognized as State, therefore importing state by package name
+	def validateStateNames(Move move){ 
+	//Note, AbstractStateMachineValidator is recognized as State, therefore importing state by package name
 		val state = move.eContainer.getContainerOfType(org.xtext.example.mydsl.stateMachine.State)
 		if(move.state.equals(state)){
-			error("You naughty boy", StateMachinePackage.eINSTANCE.move_State);
+			error("Current state and future state may not be the same!", StateMachinePackage.eINSTANCE.move_State);
 		}
 	}
+	
+	
 	
 }

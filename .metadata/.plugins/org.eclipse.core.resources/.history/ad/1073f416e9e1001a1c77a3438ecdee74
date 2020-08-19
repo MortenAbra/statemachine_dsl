@@ -1,0 +1,9 @@
+package hover
+
+import org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider
+
+class StateMachineHoverProvider extends DefaultEObjectHoverProvider {
+	
+	
+	
+}

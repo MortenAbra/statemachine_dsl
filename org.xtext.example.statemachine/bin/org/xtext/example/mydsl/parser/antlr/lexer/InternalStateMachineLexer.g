@@ -23,15 +23,51 @@ State : 'State';
 
 Block : 'block';
 
+Event : 'event';
+
+State_1 : 'state';
+
+Gate : 'Gate';
+
+EqualsSignGreaterThanSignVerticalLine : '=>|';
+
+ExclamationMarkEqualsSign : '!=';
+
+LessThanSignEqualsSign : '<=';
+
+EqualsSignEqualsSign : '==';
+
+EqualsSignGreaterThanSign : '=>';
+
+GreaterThanSignEqualsSign : '>=';
+
 To : 'to';
+
+LeftParenthesis : '(';
+
+RightParenthesis : ')';
+
+Asterisk : '*';
+
+PlusSign : '+';
+
+HyphenMinus : '-';
+
+Solidus : '/';
+
+LessThanSign : '<';
+
+GreaterThanSign : '>';
 
 fragment RULE_BEGIN : ;
 
 fragment RULE_END : ;
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_INT : ('0'|'1'..'9' ('0'..'9')*);
 
-RULE_INT : ('0'..'9')+;
+RULE_DBL : RULE_INT? '.' ('0'..'9')+;
+
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

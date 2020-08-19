@@ -68,13 +68,22 @@ public interface StateMachinePackage extends EPackage
   int STATE_MACHINE = 0;
 
   /**
+   * The feature id for the '<em><b>Gate</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINE__GATE = 0;
+
+  /**
    * The feature id for the '<em><b>Event</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__EVENT = 0;
+  int STATE_MACHINE__EVENT = 1;
 
   /**
    * The feature id for the '<em><b>Event Reset</b></em>' reference list.
@@ -83,7 +92,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__EVENT_RESET = 1;
+  int STATE_MACHINE__EVENT_RESET = 2;
 
   /**
    * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
@@ -92,7 +101,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__INSTRUCTIONS = 2;
+  int STATE_MACHINE__INSTRUCTIONS = 3;
 
   /**
    * The feature id for the '<em><b>State</b></em>' containment reference list.
@@ -101,7 +110,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__STATE = 3;
+  int STATE_MACHINE__STATE = 4;
 
   /**
    * The number of structural features of the '<em>State Machine</em>' class.
@@ -110,7 +119,72 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_MACHINE_FEATURE_COUNT = 4;
+  int STATE_MACHINE_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.GateImpl <em>Gate</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.GateImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getGate()
+   * @generated
+   */
+  int GATE = 1;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GATE__BLOCK = 0;
+
+  /**
+   * The number of structural features of the '<em>Gate</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GATE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.BlockImpl <em>Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.BlockImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getBlock()
+   * @generated
+   */
+  int BLOCK = 2;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__ACTION = 0;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__STATE = 1;
+
+  /**
+   * The number of structural features of the '<em>Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -120,7 +194,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getInstruction()
    * @generated
    */
-  int INSTRUCTION = 1;
+  int INSTRUCTION = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +222,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 2;
+  int EVENT = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,7 +250,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getState()
    * @generated
    */
-  int STATE = 3;
+  int STATE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -222,10 +296,10 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getMove()
    * @generated
    */
-  int MOVE = 4;
+  int MOVE = 6;
 
   /**
-   * The feature id for the '<em><b>Event</b></em>' reference.
+   * The feature id for the '<em><b>Event</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -251,6 +325,559 @@ public interface StateMachinePackage extends EPackage
    */
   int MOVE_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.TriggerImpl <em>Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.TriggerImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getTrigger()
+   * @generated
+   */
+  int TRIGGER = 7;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER__EVENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.ExpressionImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 8;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__EVENT = TRIGGER__EVENT;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.NumberImpl <em>Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.NumberImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getNumber()
+   * @generated
+   */
+  int NUMBER = 9;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.EqualImpl <em>Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.EqualImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getEqual()
+   * @generated
+   */
+  int EQUAL = 10;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.UnequalImpl <em>Unequal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.UnequalImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getUnequal()
+   * @generated
+   */
+  int UNEQUAL = 11;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNEQUAL__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNEQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNEQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Unequal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNEQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.LessThanImpl <em>Less Than</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.LessThanImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getLessThan()
+   * @generated
+   */
+  int LESS_THAN = 12;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Less Than</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.LessThanEqualImpl <em>Less Than Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.LessThanEqualImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getLessThanEqual()
+   * @generated
+   */
+  int LESS_THAN_EQUAL = 13;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_EQUAL__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Less Than Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.GreaterThanImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getGreaterThan()
+   * @generated
+   */
+  int GREATER_THAN = 14;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Greater Than</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.GreaterThanEqualImpl <em>Greater Than Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.GreaterThanEqualImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getGreaterThanEqual()
+   * @generated
+   */
+  int GREATER_THAN_EQUAL = 15;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_EQUAL__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Greater Than Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.PlusImpl <em>Plus</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.PlusImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getPlus()
+   * @generated
+   */
+  int PLUS = 16;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Plus</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.MinusImpl <em>Minus</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.MinusImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getMinus()
+   * @generated
+   */
+  int MINUS = 17;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Minus</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.MulImpl <em>Mul</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.MulImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getMul()
+   * @generated
+   */
+  int MUL = 18;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Mul</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.stateMachine.impl.DivImpl <em>Div</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.stateMachine.impl.DivImpl
+   * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getDiv()
+   * @generated
+   */
+  int DIV = 19;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__EVENT = EXPRESSION__EVENT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Div</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.StateMachine <em>State Machine</em>}'.
@@ -261,6 +888,17 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EClass getStateMachine();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.stateMachine.StateMachine#getGate <em>Gate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Gate</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.StateMachine#getGate()
+   * @see #getStateMachine()
+   * @generated
+   */
+  EReference getStateMachine_Gate();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.stateMachine.StateMachine#getEvent <em>Event</em>}'.
@@ -305,6 +943,59 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EReference getStateMachine_State();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Gate <em>Gate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Gate</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Gate
+   * @generated
+   */
+  EClass getGate();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.stateMachine.Gate#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Block</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Gate#getBlock()
+   * @see #getGate()
+   * @generated
+   */
+  EReference getGate_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Block</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Block
+   * @generated
+   */
+  EClass getBlock();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.stateMachine.Block#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Action</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Block#getAction()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_Action();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.stateMachine.Block#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>State</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Block#getState()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_State();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Instruction <em>Instruction</em>}'.
@@ -402,10 +1093,10 @@ public interface StateMachinePackage extends EPackage
   EClass getMove();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.stateMachine.Move#getEvent <em>Event</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Move#getEvent <em>Event</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Event</em>'.
+   * @return the meta object for the containment reference '<em>Event</em>'.
    * @see org.xtext.example.mydsl.stateMachine.Move#getEvent()
    * @see #getMove()
    * @generated
@@ -422,6 +1113,378 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EReference getMove_State();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Trigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Trigger</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Trigger
+   * @generated
+   */
+  EClass getTrigger();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.stateMachine.Trigger#getEvent <em>Event</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Event</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Trigger#getEvent()
+   * @see #getTrigger()
+   * @generated
+   */
+  EReference getTrigger_Event();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Number <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Number
+   * @generated
+   */
+  EClass getNumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.stateMachine.Number#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Number#getValue()
+   * @see #getNumber()
+   * @generated
+   */
+  EAttribute getNumber_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Equal <em>Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Equal</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Equal
+   * @generated
+   */
+  EClass getEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Equal#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Equal#getLeft()
+   * @see #getEqual()
+   * @generated
+   */
+  EReference getEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Equal#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Equal#getRight()
+   * @see #getEqual()
+   * @generated
+   */
+  EReference getEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Unequal <em>Unequal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unequal</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Unequal
+   * @generated
+   */
+  EClass getUnequal();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Unequal#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Unequal#getLeft()
+   * @see #getUnequal()
+   * @generated
+   */
+  EReference getUnequal_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Unequal#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Unequal#getRight()
+   * @see #getUnequal()
+   * @generated
+   */
+  EReference getUnequal_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.LessThan <em>Less Than</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Less Than</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.LessThan
+   * @generated
+   */
+  EClass getLessThan();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.LessThan#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.LessThan#getLeft()
+   * @see #getLessThan()
+   * @generated
+   */
+  EReference getLessThan_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.LessThan#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.LessThan#getRight()
+   * @see #getLessThan()
+   * @generated
+   */
+  EReference getLessThan_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.LessThanEqual <em>Less Than Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Less Than Equal</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.LessThanEqual
+   * @generated
+   */
+  EClass getLessThanEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.LessThanEqual#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.LessThanEqual#getLeft()
+   * @see #getLessThanEqual()
+   * @generated
+   */
+  EReference getLessThanEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.LessThanEqual#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.LessThanEqual#getRight()
+   * @see #getLessThanEqual()
+   * @generated
+   */
+  EReference getLessThanEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.GreaterThan <em>Greater Than</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Greater Than</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThan
+   * @generated
+   */
+  EClass getGreaterThan();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.GreaterThan#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThan#getLeft()
+   * @see #getGreaterThan()
+   * @generated
+   */
+  EReference getGreaterThan_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.GreaterThan#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThan#getRight()
+   * @see #getGreaterThan()
+   * @generated
+   */
+  EReference getGreaterThan_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.GreaterThanEqual <em>Greater Than Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Greater Than Equal</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThanEqual
+   * @generated
+   */
+  EClass getGreaterThanEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.GreaterThanEqual#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThanEqual#getLeft()
+   * @see #getGreaterThanEqual()
+   * @generated
+   */
+  EReference getGreaterThanEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.GreaterThanEqual#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThanEqual#getRight()
+   * @see #getGreaterThanEqual()
+   * @generated
+   */
+  EReference getGreaterThanEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Plus <em>Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Plus</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Plus
+   * @generated
+   */
+  EClass getPlus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Plus#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Plus#getLeft()
+   * @see #getPlus()
+   * @generated
+   */
+  EReference getPlus_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Plus#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Plus#getRight()
+   * @see #getPlus()
+   * @generated
+   */
+  EReference getPlus_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Minus <em>Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Minus</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Minus
+   * @generated
+   */
+  EClass getMinus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Minus#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Minus#getLeft()
+   * @see #getMinus()
+   * @generated
+   */
+  EReference getMinus_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Minus#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Minus#getRight()
+   * @see #getMinus()
+   * @generated
+   */
+  EReference getMinus_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Mul <em>Mul</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mul</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Mul
+   * @generated
+   */
+  EClass getMul();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Mul#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Mul#getLeft()
+   * @see #getMul()
+   * @generated
+   */
+  EReference getMul_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Mul#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Mul#getRight()
+   * @see #getMul()
+   * @generated
+   */
+  EReference getMul_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.stateMachine.Div <em>Div</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Div</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Div
+   * @generated
+   */
+  EClass getDiv();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Div#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Div#getLeft()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.stateMachine.Div#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.stateMachine.Div#getRight()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Right();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -457,6 +1520,14 @@ public interface StateMachinePackage extends EPackage
     EClass STATE_MACHINE = eINSTANCE.getStateMachine();
 
     /**
+     * The meta object literal for the '<em><b>Gate</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE_MACHINE__GATE = eINSTANCE.getStateMachine_Gate();
+
+    /**
      * The meta object literal for the '<em><b>Event</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -487,6 +1558,50 @@ public interface StateMachinePackage extends EPackage
      * @generated
      */
     EReference STATE_MACHINE__STATE = eINSTANCE.getStateMachine_State();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.GateImpl <em>Gate</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.GateImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getGate()
+     * @generated
+     */
+    EClass GATE = eINSTANCE.getGate();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GATE__BLOCK = eINSTANCE.getGate_Block();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.BlockImpl <em>Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.BlockImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getBlock()
+     * @generated
+     */
+    EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__ACTION = eINSTANCE.getBlock_Action();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__STATE = eINSTANCE.getBlock_State();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -569,7 +1684,7 @@ public interface StateMachinePackage extends EPackage
     EClass MOVE = eINSTANCE.getMove();
 
     /**
-     * The meta object literal for the '<em><b>Event</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -583,6 +1698,312 @@ public interface StateMachinePackage extends EPackage
      * @generated
      */
     EReference MOVE__STATE = eINSTANCE.getMove_State();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.TriggerImpl <em>Trigger</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.TriggerImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getTrigger()
+     * @generated
+     */
+    EClass TRIGGER = eINSTANCE.getTrigger();
+
+    /**
+     * The meta object literal for the '<em><b>Event</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRIGGER__EVENT = eINSTANCE.getTrigger_Event();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.ExpressionImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.NumberImpl <em>Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.NumberImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getNumber()
+     * @generated
+     */
+    EClass NUMBER = eINSTANCE.getNumber();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER__VALUE = eINSTANCE.getNumber_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.EqualImpl <em>Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.EqualImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getEqual()
+     * @generated
+     */
+    EClass EQUAL = eINSTANCE.getEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EQUAL__LEFT = eINSTANCE.getEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EQUAL__RIGHT = eINSTANCE.getEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.UnequalImpl <em>Unequal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.UnequalImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getUnequal()
+     * @generated
+     */
+    EClass UNEQUAL = eINSTANCE.getUnequal();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNEQUAL__LEFT = eINSTANCE.getUnequal_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNEQUAL__RIGHT = eINSTANCE.getUnequal_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.LessThanImpl <em>Less Than</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.LessThanImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getLessThan()
+     * @generated
+     */
+    EClass LESS_THAN = eINSTANCE.getLessThan();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN__LEFT = eINSTANCE.getLessThan_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN__RIGHT = eINSTANCE.getLessThan_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.LessThanEqualImpl <em>Less Than Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.LessThanEqualImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getLessThanEqual()
+     * @generated
+     */
+    EClass LESS_THAN_EQUAL = eINSTANCE.getLessThanEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN_EQUAL__LEFT = eINSTANCE.getLessThanEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN_EQUAL__RIGHT = eINSTANCE.getLessThanEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.GreaterThanImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getGreaterThan()
+     * @generated
+     */
+    EClass GREATER_THAN = eINSTANCE.getGreaterThan();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN__LEFT = eINSTANCE.getGreaterThan_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN__RIGHT = eINSTANCE.getGreaterThan_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.GreaterThanEqualImpl <em>Greater Than Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.GreaterThanEqualImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getGreaterThanEqual()
+     * @generated
+     */
+    EClass GREATER_THAN_EQUAL = eINSTANCE.getGreaterThanEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN_EQUAL__LEFT = eINSTANCE.getGreaterThanEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN_EQUAL__RIGHT = eINSTANCE.getGreaterThanEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.PlusImpl <em>Plus</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.PlusImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getPlus()
+     * @generated
+     */
+    EClass PLUS = eINSTANCE.getPlus();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLUS__LEFT = eINSTANCE.getPlus_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLUS__RIGHT = eINSTANCE.getPlus_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.MinusImpl <em>Minus</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.MinusImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getMinus()
+     * @generated
+     */
+    EClass MINUS = eINSTANCE.getMinus();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINUS__LEFT = eINSTANCE.getMinus_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINUS__RIGHT = eINSTANCE.getMinus_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.MulImpl <em>Mul</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.MulImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getMul()
+     * @generated
+     */
+    EClass MUL = eINSTANCE.getMul();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MUL__LEFT = eINSTANCE.getMul_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MUL__RIGHT = eINSTANCE.getMul_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.stateMachine.impl.DivImpl <em>Div</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.stateMachine.impl.DivImpl
+     * @see org.xtext.example.mydsl.stateMachine.impl.StateMachinePackageImpl#getDiv()
+     * @generated
+     */
+    EClass DIV = eINSTANCE.getDiv();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__LEFT = eINSTANCE.getDiv_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__RIGHT = eINSTANCE.getDiv_Right();
 
   }
 

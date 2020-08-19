@@ -10,7 +10,26 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.xtext.example.mydsl.stateMachine.*;
+import org.xtext.example.mydsl.stateMachine.Block;
+import org.xtext.example.mydsl.stateMachine.Div;
+import org.xtext.example.mydsl.stateMachine.Equal;
+import org.xtext.example.mydsl.stateMachine.Event;
+import org.xtext.example.mydsl.stateMachine.Expression;
+import org.xtext.example.mydsl.stateMachine.Gate;
+import org.xtext.example.mydsl.stateMachine.GreaterThan;
+import org.xtext.example.mydsl.stateMachine.GreaterThanEqual;
+import org.xtext.example.mydsl.stateMachine.Instruction;
+import org.xtext.example.mydsl.stateMachine.LessThan;
+import org.xtext.example.mydsl.stateMachine.LessThanEqual;
+import org.xtext.example.mydsl.stateMachine.Minus;
+import org.xtext.example.mydsl.stateMachine.Move;
+import org.xtext.example.mydsl.stateMachine.Mul;
+import org.xtext.example.mydsl.stateMachine.Plus;
+import org.xtext.example.mydsl.stateMachine.State;
+import org.xtext.example.mydsl.stateMachine.StateMachine;
+import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
+import org.xtext.example.mydsl.stateMachine.Trigger;
+import org.xtext.example.mydsl.stateMachine.Unequal;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,6 +100,16 @@ public class StateMachineAdapterFactory extends AdapterFactoryImpl
         return createStateMachineAdapter();
       }
       @Override
+      public Adapter caseGate(Gate object)
+      {
+        return createGateAdapter();
+      }
+      @Override
+      public Adapter caseBlock(Block object)
+      {
+        return createBlockAdapter();
+      }
+      @Override
       public Adapter caseInstruction(Instruction object)
       {
         return createInstructionAdapter();
@@ -99,6 +128,71 @@ public class StateMachineAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMove(Move object)
       {
         return createMoveAdapter();
+      }
+      @Override
+      public Adapter caseTrigger(Trigger object)
+      {
+        return createTriggerAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseNumber(org.xtext.example.mydsl.stateMachine.Number object)
+      {
+        return createNumberAdapter();
+      }
+      @Override
+      public Adapter caseEqual(Equal object)
+      {
+        return createEqualAdapter();
+      }
+      @Override
+      public Adapter caseUnequal(Unequal object)
+      {
+        return createUnequalAdapter();
+      }
+      @Override
+      public Adapter caseLessThan(LessThan object)
+      {
+        return createLessThanAdapter();
+      }
+      @Override
+      public Adapter caseLessThanEqual(LessThanEqual object)
+      {
+        return createLessThanEqualAdapter();
+      }
+      @Override
+      public Adapter caseGreaterThan(GreaterThan object)
+      {
+        return createGreaterThanAdapter();
+      }
+      @Override
+      public Adapter caseGreaterThanEqual(GreaterThanEqual object)
+      {
+        return createGreaterThanEqualAdapter();
+      }
+      @Override
+      public Adapter casePlus(Plus object)
+      {
+        return createPlusAdapter();
+      }
+      @Override
+      public Adapter caseMinus(Minus object)
+      {
+        return createMinusAdapter();
+      }
+      @Override
+      public Adapter caseMul(Mul object)
+      {
+        return createMulAdapter();
+      }
+      @Override
+      public Adapter caseDiv(Div object)
+      {
+        return createDivAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -133,6 +227,36 @@ public class StateMachineAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStateMachineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Gate <em>Gate</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Gate
+   * @generated
+   */
+  public Adapter createGateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Block
+   * @generated
+   */
+  public Adapter createBlockAdapter()
   {
     return null;
   }
@@ -193,6 +317,201 @@ public class StateMachineAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMoveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Trigger <em>Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Trigger
+   * @generated
+   */
+  public Adapter createTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Number <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Number
+   * @generated
+   */
+  public Adapter createNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Equal <em>Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Equal
+   * @generated
+   */
+  public Adapter createEqualAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Unequal <em>Unequal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Unequal
+   * @generated
+   */
+  public Adapter createUnequalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.LessThan <em>Less Than</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.LessThan
+   * @generated
+   */
+  public Adapter createLessThanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.LessThanEqual <em>Less Than Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.LessThanEqual
+   * @generated
+   */
+  public Adapter createLessThanEqualAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.GreaterThan <em>Greater Than</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThan
+   * @generated
+   */
+  public Adapter createGreaterThanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.GreaterThanEqual <em>Greater Than Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.GreaterThanEqual
+   * @generated
+   */
+  public Adapter createGreaterThanEqualAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Plus <em>Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Plus
+   * @generated
+   */
+  public Adapter createPlusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Minus <em>Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Minus
+   * @generated
+   */
+  public Adapter createMinusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Mul <em>Mul</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Mul
+   * @generated
+   */
+  public Adapter createMulAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.stateMachine.Div <em>Div</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.stateMachine.Div
+   * @generated
+   */
+  public Adapter createDivAdapter()
   {
     return null;
   }

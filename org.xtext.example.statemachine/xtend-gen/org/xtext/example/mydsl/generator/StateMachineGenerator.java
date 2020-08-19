@@ -15,10 +15,12 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.mydsl.stateMachine.Event;
+import org.xtext.example.mydsl.stateMachine.Expression;
 import org.xtext.example.mydsl.stateMachine.Instruction;
 import org.xtext.example.mydsl.stateMachine.Move;
 import org.xtext.example.mydsl.stateMachine.State;
 import org.xtext.example.mydsl.stateMachine.StateMachine;
+import org.xtext.example.mydsl.stateMachine.Trigger;
 
 /**
  * Generates code from your model files on save.
@@ -44,10 +46,32 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("():");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("def inputHandler(self):");
+    _builder.newLine();
+    _builder.append("\t\t");
+    CharSequence _generateInputHandler = this.generateInputHandler(model);
+    _builder.append(_generateInputHandler, "\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t");
+    _builder.newLine();
+    {
+      EList<Instruction> _instructions = model.getInstructions();
+      for(final Instruction c : _instructions) {
+        _builder.append("\t");
+        CharSequence _generateInstructions = this.generateInstructions(c);
+        _builder.append(_generateInstructions, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("def run(self):");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("print(\'Press A for all actions or: \', \'\\n\')");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("self.currentState = \"");
@@ -63,7 +87,7 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append("self.previousEvent = None");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("self.executeActions = True");
+    _builder.append("self.previousState = None");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("self.running = True");
@@ -77,8 +101,8 @@ public class StateMachineGenerator extends AbstractGenerator {
       EList<State> _state = model.getState();
       for(final State state : _state) {
         _builder.append("\t\t\t");
-        CharSequence _generateActions = this.generateActions(state);
-        _builder.append(_generateActions, "\t\t\t");
+        CharSequence _generateStates = this.generateStates(state);
+        _builder.append(_generateStates, "\t\t\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -106,35 +130,12 @@ public class StateMachineGenerator extends AbstractGenerator {
         _builder.append(_name_3, "\t\t\t\t");
         _builder.append("\'");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t");
-        _builder.append("\t");
-        _builder.append("executeActions = True");
-        _builder.newLine();
       }
     }
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("def eventHandler(self):");
     _builder.newLine();
-    _builder.append("\t\t");
-    String _generateInputHandler = this.generateInputHandler(model);
-    _builder.append(_generateInputHandler, "\t\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.newLine();
-    {
-      EList<Instruction> _instructions = model.getInstructions();
-      for(final Instruction c : _instructions) {
-        _builder.append("\t");
-        CharSequence _generateInstructions = this.generateInstructions(c);
-        _builder.append(_generateInstructions, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
     _builder.append("\t\t\t");
     _builder.newLine();
     _builder.append("\t");
@@ -154,11 +155,11 @@ public class StateMachineGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public String generateInputHandler(final StateMachine model) {
+  public CharSequence generateInputHandler(final StateMachine model) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("print(\'Press A for all actions or: \', \'\\n\')");
-    _builder.newLine();
     _builder.append("n = input(\'Enter new action: \')");
+    _builder.newLine();
+    _builder.append("n = str(n)");
     _builder.newLine();
     _builder.append("if(n == \'A\'):");
     _builder.newLine();
@@ -171,11 +172,10 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("self.running = False");
     _builder.newLine();
-    _builder.append("n = str(n)");
     _builder.newLine();
     _builder.append("return n");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
   
   public CharSequence generateEvents(final StateMachine model) {
@@ -193,32 +193,26 @@ public class StateMachineGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence generateActions(final State state) {
+  public CharSequence generateStates(final State state) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("if(self.currentState == \'");
     String _name = state.getName();
     _builder.append(_name);
     _builder.append("\'):");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("if(self.executeActions):");
+    _builder.append("\t\t");
     _builder.newLine();
     {
       EList<Instruction> _actions = state.getActions();
       for(final Instruction e : _actions) {
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("self.");
         String _firstLower = StringExtensions.toFirstLower(e.getName());
-        _builder.append(_firstLower, "\t\t");
+        _builder.append(_firstLower, "\t");
         _builder.append("()");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t\t");
-    _builder.append("self.executeActions = False");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.newLine();
     _builder.append("\t");
     _builder.append("print(\'Current state is:  ");
     String _name_1 = state.getName();
@@ -226,32 +220,47 @@ public class StateMachineGenerator extends AbstractGenerator {
     _builder.append(".\')");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("self.previousEvent = self.eventHandler()");
+    _builder.append("self.previousEvent = self.inputHandler()");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("self.previousState = self.currentState");
     _builder.newLine();
     {
       EList<Move> _moves = state.getMoves();
       for(final Move c : _moves) {
         _builder.append("\t");
-        _builder.append("if(\'");
-        String _name_2 = c.getEvent().getName();
-        _builder.append(_name_2, "\t");
-        _builder.append("\' == self.previousEvent):");
+        _builder.append("if(self.previousEvent == \'");
+        String _extractEventName = this.extractEventName(c.getEvent());
+        _builder.append(_extractEventName, "\t");
+        _builder.append("\'):");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("self.currentState = \'");
-        String _name_3 = c.getState().getName();
-        _builder.append(_name_3, "\t\t");
+        String _name_2 = c.getState().getName();
+        _builder.append(_name_2, "\t\t");
         _builder.append("\'");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("self.executeActions = True");
+        _builder.append("print(\'Previous state is: \',str(self.previousState))");
         _builder.newLine();
       }
     }
     _builder.newLine();
     return _builder;
+  }
+  
+  public String extractEventName(final Trigger trig) {
+    if ((!(trig instanceof Expression))) {
+      return trig.getEvent().getName();
+    } else {
+      return this.stringify(((Expression) trig));
+    }
+  }
+  
+  public String stringify(final Expression exp) {
+    return "\"dummy_expression\"";
   }
   
   public CharSequence generateInstructions(final Instruction ins) {

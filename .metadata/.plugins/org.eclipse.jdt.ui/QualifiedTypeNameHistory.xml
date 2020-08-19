@@ -20,4 +20,9 @@
     <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.Instruction"/>
     <fullyQualifiedTypeName name="org.xtext.example.mydsl.stateMachine.State"/>
     <fullyQualifiedTypeName name="org.xtext.example.mydsl.validation.AbstractStateMachineValidator"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.resource.XtextResource"/>
 </qualifiedTypeNameHistroy>

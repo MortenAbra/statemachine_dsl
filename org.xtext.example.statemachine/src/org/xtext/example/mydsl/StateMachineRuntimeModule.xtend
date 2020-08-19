@@ -3,9 +3,15 @@
  */
 package org.xtext.example.mydsl
 
+import org.eclipse.xtext.scoping.IScopeProvider
+import org.xtext.example.mydsl.scoping.StateMachineScopeProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class StateMachineRuntimeModule extends AbstractStateMachineRuntimeModule {
+	
+	override Class<? extends IScopeProvider> bindIScopeProvider(){
+		StateMachineScopeProvider;
+	}
 }

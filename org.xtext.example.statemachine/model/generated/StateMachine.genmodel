@@ -7,10 +7,18 @@
   <genPackages prefix="StateMachine" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="state" ecorePackage="StateMachine.ecore#/">
     <genClasses ecoreClass="StateMachine.ecore#//StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/gate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/event"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/eventReset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/instructions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/state"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Gate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Gate/block"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Block">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Block/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Block/state"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Instruction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Instruction/name"/>
@@ -24,8 +32,55 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//State/moves"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Move">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Move/event"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Move/event"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Move/state"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Trigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Trigger/event"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Expression"/>
+    <genClasses ecoreClass="StateMachine.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Number/value"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Equal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Equal/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Equal/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Unequal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Unequal/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Unequal/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//LessThan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//LessThan/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//LessThan/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//LessThanEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//LessThanEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//LessThanEqual/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//GreaterThan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//GreaterThan/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//GreaterThan/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//GreaterThanEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//GreaterThanEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//GreaterThanEqual/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Plus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Plus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Plus/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Minus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Minus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Minus/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Mul">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Mul/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Mul/right"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Div">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Div/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Div/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

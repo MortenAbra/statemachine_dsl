@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getGate <em>Gate</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getEvent <em>Event</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getEventReset <em>Event Reset</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.StateMachine#getInstructions <em>Instructions</em>}</li>
@@ -28,6 +29,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StateMachine extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Gate</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.stateMachine.Gate}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Gate</em>' containment reference list.
+   * @see org.xtext.example.mydsl.stateMachine.StateMachinePackage#getStateMachine_Gate()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Gate> getGate();
+
   /**
    * Returns the value of the '<em><b>Event</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.stateMachine.Event}.

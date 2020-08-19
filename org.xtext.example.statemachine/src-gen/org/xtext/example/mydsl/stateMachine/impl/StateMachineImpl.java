@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.stateMachine.Event;
+import org.xtext.example.mydsl.stateMachine.Gate;
 import org.xtext.example.mydsl.stateMachine.Instruction;
 import org.xtext.example.mydsl.stateMachine.State;
 import org.xtext.example.mydsl.stateMachine.StateMachine;
@@ -32,6 +33,7 @@ import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getGate <em>Gate</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getEventReset <em>Event Reset</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.stateMachine.impl.StateMachineImpl#getInstructions <em>Instructions</em>}</li>
@@ -42,6 +44,16 @@ import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
  */
 public class StateMachineImpl extends MinimalEObjectImpl.Container implements StateMachine
 {
+  /**
+   * The cached value of the '{@link #getGate() <em>Gate</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGate()
+   * @generated
+   * @ordered
+   */
+  protected EList<Gate> gate;
+
   /**
    * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -101,6 +113,21 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   protected EClass eStaticClass()
   {
     return StateMachinePackage.Literals.STATE_MACHINE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Gate> getGate()
+  {
+    if (gate == null)
+    {
+      gate = new EObjectContainmentEList<Gate>(Gate.class, this, StateMachinePackage.STATE_MACHINE__GATE);
+    }
+    return gate;
   }
 
   /**
@@ -173,6 +200,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case StateMachinePackage.STATE_MACHINE__GATE:
+        return ((InternalEList<?>)getGate()).basicRemove(otherEnd, msgs);
       case StateMachinePackage.STATE_MACHINE__EVENT:
         return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
       case StateMachinePackage.STATE_MACHINE__INSTRUCTIONS:
@@ -193,6 +222,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case StateMachinePackage.STATE_MACHINE__GATE:
+        return getGate();
       case StateMachinePackage.STATE_MACHINE__EVENT:
         return getEvent();
       case StateMachinePackage.STATE_MACHINE__EVENT_RESET:
@@ -216,6 +247,10 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case StateMachinePackage.STATE_MACHINE__GATE:
+        getGate().clear();
+        getGate().addAll((Collection<? extends Gate>)newValue);
+        return;
       case StateMachinePackage.STATE_MACHINE__EVENT:
         getEvent().clear();
         getEvent().addAll((Collection<? extends Event>)newValue);
@@ -246,6 +281,9 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case StateMachinePackage.STATE_MACHINE__GATE:
+        getGate().clear();
+        return;
       case StateMachinePackage.STATE_MACHINE__EVENT:
         getEvent().clear();
         return;
@@ -272,6 +310,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case StateMachinePackage.STATE_MACHINE__GATE:
+        return gate != null && !gate.isEmpty();
       case StateMachinePackage.STATE_MACHINE__EVENT:
         return event != null && !event.isEmpty();
       case StateMachinePackage.STATE_MACHINE__EVENT_RESET:

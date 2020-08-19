@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.stateMachine.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,10 +12,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.stateMachine.Event;
 import org.xtext.example.mydsl.stateMachine.Move;
 import org.xtext.example.mydsl.stateMachine.State;
 import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
+import org.xtext.example.mydsl.stateMachine.Trigger;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,14 +34,14 @@ import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
 public class MoveImpl extends MinimalEObjectImpl.Container implements Move
 {
   /**
-   * The cached value of the '{@link #getEvent() <em>Event</em>}' reference.
+   * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEvent()
    * @generated
    * @ordered
    */
-  protected Event event;
+  protected Trigger event;
 
   /**
    * The cached value of the '{@link #getState() <em>State</em>}' reference.
@@ -79,18 +80,8 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * @generated
    */
   @Override
-  public Event getEvent()
+  public Trigger getEvent()
   {
-    if (event != null && event.eIsProxy())
-    {
-      InternalEObject oldEvent = (InternalEObject)event;
-      event = (Event)eResolveProxy(oldEvent);
-      if (event != oldEvent)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StateMachinePackage.MOVE__EVENT, oldEvent, event));
-      }
-    }
     return event;
   }
 
@@ -99,9 +90,16 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * <!-- end-user-doc -->
    * @generated
    */
-  public Event basicGetEvent()
+  public NotificationChain basicSetEvent(Trigger newEvent, NotificationChain msgs)
   {
-    return event;
+    Trigger oldEvent = event;
+    event = newEvent;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StateMachinePackage.MOVE__EVENT, oldEvent, newEvent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -110,12 +108,20 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * @generated
    */
   @Override
-  public void setEvent(Event newEvent)
+  public void setEvent(Trigger newEvent)
   {
-    Event oldEvent = event;
-    event = newEvent;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StateMachinePackage.MOVE__EVENT, oldEvent, event));
+    if (newEvent != event)
+    {
+      NotificationChain msgs = null;
+      if (event != null)
+        msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StateMachinePackage.MOVE__EVENT, null, msgs);
+      if (newEvent != null)
+        msgs = ((InternalEObject)newEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StateMachinePackage.MOVE__EVENT, null, msgs);
+      msgs = basicSetEvent(newEvent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachinePackage.MOVE__EVENT, newEvent, newEvent));
   }
 
   /**
@@ -169,13 +175,28 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case StateMachinePackage.MOVE__EVENT:
+        return basicSetEvent(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case StateMachinePackage.MOVE__EVENT:
-        if (resolve) return getEvent();
-        return basicGetEvent();
+        return getEvent();
       case StateMachinePackage.MOVE__STATE:
         if (resolve) return getState();
         return basicGetState();
@@ -194,7 +215,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
     switch (featureID)
     {
       case StateMachinePackage.MOVE__EVENT:
-        setEvent((Event)newValue);
+        setEvent((Trigger)newValue);
         return;
       case StateMachinePackage.MOVE__STATE:
         setState((State)newValue);
@@ -214,7 +235,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move
     switch (featureID)
     {
       case StateMachinePackage.MOVE__EVENT:
-        setEvent((Event)null);
+        setEvent((Trigger)null);
         return;
       case StateMachinePackage.MOVE__STATE:
         setState((State)null);

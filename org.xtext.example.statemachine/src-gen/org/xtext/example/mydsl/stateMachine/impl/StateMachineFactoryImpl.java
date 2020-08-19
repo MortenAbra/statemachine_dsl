@@ -11,7 +11,27 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.example.mydsl.stateMachine.*;
+import org.xtext.example.mydsl.stateMachine.Block;
+import org.xtext.example.mydsl.stateMachine.Div;
+import org.xtext.example.mydsl.stateMachine.Equal;
+import org.xtext.example.mydsl.stateMachine.Event;
+import org.xtext.example.mydsl.stateMachine.Expression;
+import org.xtext.example.mydsl.stateMachine.Gate;
+import org.xtext.example.mydsl.stateMachine.GreaterThan;
+import org.xtext.example.mydsl.stateMachine.GreaterThanEqual;
+import org.xtext.example.mydsl.stateMachine.Instruction;
+import org.xtext.example.mydsl.stateMachine.LessThan;
+import org.xtext.example.mydsl.stateMachine.LessThanEqual;
+import org.xtext.example.mydsl.stateMachine.Minus;
+import org.xtext.example.mydsl.stateMachine.Move;
+import org.xtext.example.mydsl.stateMachine.Mul;
+import org.xtext.example.mydsl.stateMachine.Plus;
+import org.xtext.example.mydsl.stateMachine.State;
+import org.xtext.example.mydsl.stateMachine.StateMachine;
+import org.xtext.example.mydsl.stateMachine.StateMachineFactory;
+import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
+import org.xtext.example.mydsl.stateMachine.Trigger;
+import org.xtext.example.mydsl.stateMachine.Unequal;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,10 +86,25 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
     switch (eClass.getClassifierID())
     {
       case StateMachinePackage.STATE_MACHINE: return createStateMachine();
+      case StateMachinePackage.GATE: return createGate();
+      case StateMachinePackage.BLOCK: return createBlock();
       case StateMachinePackage.INSTRUCTION: return createInstruction();
       case StateMachinePackage.EVENT: return createEvent();
       case StateMachinePackage.STATE: return createState();
       case StateMachinePackage.MOVE: return createMove();
+      case StateMachinePackage.TRIGGER: return createTrigger();
+      case StateMachinePackage.EXPRESSION: return createExpression();
+      case StateMachinePackage.NUMBER: return createNumber();
+      case StateMachinePackage.EQUAL: return createEqual();
+      case StateMachinePackage.UNEQUAL: return createUnequal();
+      case StateMachinePackage.LESS_THAN: return createLessThan();
+      case StateMachinePackage.LESS_THAN_EQUAL: return createLessThanEqual();
+      case StateMachinePackage.GREATER_THAN: return createGreaterThan();
+      case StateMachinePackage.GREATER_THAN_EQUAL: return createGreaterThanEqual();
+      case StateMachinePackage.PLUS: return createPlus();
+      case StateMachinePackage.MINUS: return createMinus();
+      case StateMachinePackage.MUL: return createMul();
+      case StateMachinePackage.DIV: return createDiv();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -85,6 +120,30 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
   {
     StateMachineImpl stateMachine = new StateMachineImpl();
     return stateMachine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Gate createGate()
+  {
+    GateImpl gate = new GateImpl();
+    return gate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
   }
 
   /**
@@ -133,6 +192,162 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
   {
     MoveImpl move = new MoveImpl();
     return move;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Trigger createTrigger()
+  {
+    TriggerImpl trigger = new TriggerImpl();
+    return trigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public org.xtext.example.mydsl.stateMachine.Number createNumber()
+  {
+    NumberImpl number = new NumberImpl();
+    return number;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Equal createEqual()
+  {
+    EqualImpl equal = new EqualImpl();
+    return equal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Unequal createUnequal()
+  {
+    UnequalImpl unequal = new UnequalImpl();
+    return unequal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LessThan createLessThan()
+  {
+    LessThanImpl lessThan = new LessThanImpl();
+    return lessThan;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LessThanEqual createLessThanEqual()
+  {
+    LessThanEqualImpl lessThanEqual = new LessThanEqualImpl();
+    return lessThanEqual;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GreaterThan createGreaterThan()
+  {
+    GreaterThanImpl greaterThan = new GreaterThanImpl();
+    return greaterThan;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GreaterThanEqual createGreaterThanEqual()
+  {
+    GreaterThanEqualImpl greaterThanEqual = new GreaterThanEqualImpl();
+    return greaterThanEqual;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Plus createPlus()
+  {
+    PlusImpl plus = new PlusImpl();
+    return plus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Minus createMinus()
+  {
+    MinusImpl minus = new MinusImpl();
+    return minus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Mul createMul()
+  {
+    MulImpl mul = new MulImpl();
+    return mul;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Div createDiv()
+  {
+    DivImpl div = new DivImpl();
+    return div;
   }
 
   /**

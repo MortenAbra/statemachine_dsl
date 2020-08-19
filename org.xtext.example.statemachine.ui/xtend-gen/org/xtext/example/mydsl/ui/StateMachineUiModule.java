@@ -3,8 +3,10 @@
  */
 package org.xtext.example.mydsl.ui;
 
+import hover.StateMachineHoverProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.xtext.example.mydsl.ui.AbstractStateMachineUiModule;
@@ -23,6 +25,10 @@ public class StateMachineUiModule extends AbstractStateMachineUiModule {
   
   public Class<? extends DefaultSemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
     return StateMachineSemanticHighligther.class;
+  }
+  
+  public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+    return StateMachineHoverProvider.class;
   }
   
   public StateMachineUiModule(final AbstractUIPlugin plugin) {

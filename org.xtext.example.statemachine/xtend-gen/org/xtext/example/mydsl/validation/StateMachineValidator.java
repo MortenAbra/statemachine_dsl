@@ -34,17 +34,6 @@ public class StateMachineValidator extends AbstractStateMachineValidator {
   }
   
   @Check
-  public void checkForMultipleAttritbuteInstances(final StateMachine model) {
-    EList<Event> _event = model.getEvent();
-    for (final Event e : _event) {
-      boolean _contains = model.getEvent().contains(e.getName());
-      if (_contains) {
-        this.error("Multiple of same event types not allowed!", StateMachinePackage.Literals.STATE_MACHINE__EVENT);
-      }
-    }
-  }
-  
-  @Check
   public void checkEventAttributeStartingWithLowercase(final StateMachine model) {
     EList<Event> _event = model.getEvent();
     for (final Event e : _event) {
@@ -105,7 +94,7 @@ public class StateMachineValidator extends AbstractStateMachineValidator {
     final org.xtext.example.mydsl.stateMachine.State state = EcoreUtil2.<org.xtext.example.mydsl.stateMachine.State>getContainerOfType(move.eContainer(), org.xtext.example.mydsl.stateMachine.State.class);
     boolean _equals = move.getState().equals(state);
     if (_equals) {
-      this.error("You naughty boy", StateMachinePackage.eINSTANCE.getMove_State());
+      this.error("Current state and future state may not be the same!", StateMachinePackage.eINSTANCE.getMove_State());
     }
   }
 }

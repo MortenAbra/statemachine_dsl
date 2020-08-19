@@ -33,6 +33,24 @@ public interface StateMachineFactory extends EFactory
   StateMachine createStateMachine();
 
   /**
+   * Returns a new object of class '<em>Gate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gate</em>'.
+   * @generated
+   */
+  Gate createGate();
+
+  /**
+   * Returns a new object of class '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block</em>'.
+   * @generated
+   */
+  Block createBlock();
+
+  /**
    * Returns a new object of class '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -67,6 +85,123 @@ public interface StateMachineFactory extends EFactory
    * @generated
    */
   Move createMove();
+
+  /**
+   * Returns a new object of class '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Trigger</em>'.
+   * @generated
+   */
+  Trigger createTrigger();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number</em>'.
+   * @generated
+   */
+  Number createNumber();
+
+  /**
+   * Returns a new object of class '<em>Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equal</em>'.
+   * @generated
+   */
+  Equal createEqual();
+
+  /**
+   * Returns a new object of class '<em>Unequal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unequal</em>'.
+   * @generated
+   */
+  Unequal createUnequal();
+
+  /**
+   * Returns a new object of class '<em>Less Than</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Less Than</em>'.
+   * @generated
+   */
+  LessThan createLessThan();
+
+  /**
+   * Returns a new object of class '<em>Less Than Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Less Than Equal</em>'.
+   * @generated
+   */
+  LessThanEqual createLessThanEqual();
+
+  /**
+   * Returns a new object of class '<em>Greater Than</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Greater Than</em>'.
+   * @generated
+   */
+  GreaterThan createGreaterThan();
+
+  /**
+   * Returns a new object of class '<em>Greater Than Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Greater Than Equal</em>'.
+   * @generated
+   */
+  GreaterThanEqual createGreaterThanEqual();
+
+  /**
+   * Returns a new object of class '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plus</em>'.
+   * @generated
+   */
+  Plus createPlus();
+
+  /**
+   * Returns a new object of class '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Minus</em>'.
+   * @generated
+   */
+  Minus createMinus();
+
+  /**
+   * Returns a new object of class '<em>Mul</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mul</em>'.
+   * @generated
+   */
+  Mul createMul();
+
+  /**
+   * Returns a new object of class '<em>Div</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Div</em>'.
+   * @generated
+   */
+  Div createDiv();
 
   /**
    * Returns the package supported by this factory.

@@ -8,7 +8,26 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.xtext.example.mydsl.stateMachine.*;
+import org.xtext.example.mydsl.stateMachine.Block;
+import org.xtext.example.mydsl.stateMachine.Div;
+import org.xtext.example.mydsl.stateMachine.Equal;
+import org.xtext.example.mydsl.stateMachine.Event;
+import org.xtext.example.mydsl.stateMachine.Expression;
+import org.xtext.example.mydsl.stateMachine.Gate;
+import org.xtext.example.mydsl.stateMachine.GreaterThan;
+import org.xtext.example.mydsl.stateMachine.GreaterThanEqual;
+import org.xtext.example.mydsl.stateMachine.Instruction;
+import org.xtext.example.mydsl.stateMachine.LessThan;
+import org.xtext.example.mydsl.stateMachine.LessThanEqual;
+import org.xtext.example.mydsl.stateMachine.Minus;
+import org.xtext.example.mydsl.stateMachine.Move;
+import org.xtext.example.mydsl.stateMachine.Mul;
+import org.xtext.example.mydsl.stateMachine.Plus;
+import org.xtext.example.mydsl.stateMachine.State;
+import org.xtext.example.mydsl.stateMachine.StateMachine;
+import org.xtext.example.mydsl.stateMachine.StateMachinePackage;
+import org.xtext.example.mydsl.stateMachine.Trigger;
+import org.xtext.example.mydsl.stateMachine.Unequal;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +99,20 @@ public class StateMachineSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StateMachinePackage.GATE:
+      {
+        Gate gate = (Gate)theEObject;
+        T result = caseGate(gate);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.BLOCK:
+      {
+        Block block = (Block)theEObject;
+        T result = caseBlock(block);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StateMachinePackage.INSTRUCTION:
       {
         Instruction instruction = (Instruction)theEObject;
@@ -108,6 +141,120 @@ public class StateMachineSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StateMachinePackage.TRIGGER:
+      {
+        Trigger trigger = (Trigger)theEObject;
+        T result = caseTrigger(trigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = caseTrigger(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.NUMBER:
+      {
+        org.xtext.example.mydsl.stateMachine.Number number = (org.xtext.example.mydsl.stateMachine.Number)theEObject;
+        T result = caseNumber(number);
+        if (result == null) result = caseExpression(number);
+        if (result == null) result = caseTrigger(number);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.EQUAL:
+      {
+        Equal equal = (Equal)theEObject;
+        T result = caseEqual(equal);
+        if (result == null) result = caseExpression(equal);
+        if (result == null) result = caseTrigger(equal);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.UNEQUAL:
+      {
+        Unequal unequal = (Unequal)theEObject;
+        T result = caseUnequal(unequal);
+        if (result == null) result = caseExpression(unequal);
+        if (result == null) result = caseTrigger(unequal);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.LESS_THAN:
+      {
+        LessThan lessThan = (LessThan)theEObject;
+        T result = caseLessThan(lessThan);
+        if (result == null) result = caseExpression(lessThan);
+        if (result == null) result = caseTrigger(lessThan);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.LESS_THAN_EQUAL:
+      {
+        LessThanEqual lessThanEqual = (LessThanEqual)theEObject;
+        T result = caseLessThanEqual(lessThanEqual);
+        if (result == null) result = caseExpression(lessThanEqual);
+        if (result == null) result = caseTrigger(lessThanEqual);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.GREATER_THAN:
+      {
+        GreaterThan greaterThan = (GreaterThan)theEObject;
+        T result = caseGreaterThan(greaterThan);
+        if (result == null) result = caseExpression(greaterThan);
+        if (result == null) result = caseTrigger(greaterThan);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.GREATER_THAN_EQUAL:
+      {
+        GreaterThanEqual greaterThanEqual = (GreaterThanEqual)theEObject;
+        T result = caseGreaterThanEqual(greaterThanEqual);
+        if (result == null) result = caseExpression(greaterThanEqual);
+        if (result == null) result = caseTrigger(greaterThanEqual);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.PLUS:
+      {
+        Plus plus = (Plus)theEObject;
+        T result = casePlus(plus);
+        if (result == null) result = caseExpression(plus);
+        if (result == null) result = caseTrigger(plus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.MINUS:
+      {
+        Minus minus = (Minus)theEObject;
+        T result = caseMinus(minus);
+        if (result == null) result = caseExpression(minus);
+        if (result == null) result = caseTrigger(minus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.MUL:
+      {
+        Mul mul = (Mul)theEObject;
+        T result = caseMul(mul);
+        if (result == null) result = caseExpression(mul);
+        if (result == null) result = caseTrigger(mul);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StateMachinePackage.DIV:
+      {
+        Div div = (Div)theEObject;
+        T result = caseDiv(div);
+        if (result == null) result = caseExpression(div);
+        if (result == null) result = caseTrigger(div);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -124,6 +271,38 @@ public class StateMachineSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStateMachine(StateMachine object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGate(Gate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlock(Block object)
   {
     return null;
   }
@@ -188,6 +367,214 @@ public class StateMachineSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMove(Move object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTrigger(Trigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumber(org.xtext.example.mydsl.stateMachine.Number object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Equal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Equal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEqual(Equal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unequal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unequal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnequal(Unequal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Less Than</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Less Than</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLessThan(LessThan object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Less Than Equal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Less Than Equal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLessThanEqual(LessThanEqual object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Greater Than</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Greater Than</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGreaterThan(GreaterThan object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Greater Than Equal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Greater Than Equal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGreaterThanEqual(GreaterThanEqual object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlus(Plus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMinus(Minus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mul</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mul</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMul(Mul object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Div</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Div</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDiv(Div object)
   {
     return null;
   }

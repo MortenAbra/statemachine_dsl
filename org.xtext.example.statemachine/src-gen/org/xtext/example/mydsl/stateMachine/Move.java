@@ -25,26 +25,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Move extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Event</b></em>' reference.
+   * Returns the value of the '<em><b>Event</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Event</em>' reference.
-   * @see #setEvent(Event)
+   * @return the value of the '<em>Event</em>' containment reference.
+   * @see #setEvent(Trigger)
    * @see org.xtext.example.mydsl.stateMachine.StateMachinePackage#getMove_Event()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Event getEvent();
+  Trigger getEvent();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.stateMachine.Move#getEvent <em>Event</em>}' reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.stateMachine.Move#getEvent <em>Event</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Event</em>' reference.
+   * @param value the new value of the '<em>Event</em>' containment reference.
    * @see #getEvent()
    * @generated
    */
-  void setEvent(Event value);
+  void setEvent(Trigger value);
 
   /**
    * Returns the value of the '<em><b>State</b></em>' reference.

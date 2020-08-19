@@ -33,24 +33,60 @@ public class StateMachineParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, StateMachineGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getTriggerAccess().getAlternatives(), "rule__Trigger__Alternatives");
+			builder.put(grammarAccess.getEqualityAccess().getAlternatives_1(), "rule__Equality__Alternatives_1");
+			builder.put(grammarAccess.getComparisonAccess().getAlternatives_1(), "rule__Comparison__Alternatives_1");
+			builder.put(grammarAccess.getSubAddAccess().getAlternatives_1(), "rule__SubAdd__Alternatives_1");
+			builder.put(grammarAccess.getMulDivAccess().getAlternatives_1(), "rule__MulDiv__Alternatives_1");
+			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getStateMachineAccess().getGroup(), "rule__StateMachine__Group__0");
-			builder.put(grammarAccess.getStateMachineAccess().getGroup_1(), "rule__StateMachine__Group_1__0");
-			builder.put(grammarAccess.getStateMachineAccess().getGroup_2(), "rule__StateMachine__Group_2__0");
-			builder.put(grammarAccess.getStateMachineAccess().getGroup_3(), "rule__StateMachine__Group_3__0");
+			builder.put(grammarAccess.getGateAccess().getGroup(), "rule__Gate__Group__0");
+			builder.put(grammarAccess.getBlockAccess().getGroup(), "rule__Block__Group__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 			builder.put(grammarAccess.getStateAccess().getGroup_4(), "rule__State__Group_4__0");
 			builder.put(grammarAccess.getMoveAccess().getGroup(), "rule__Move__Group__0");
-			builder.put(grammarAccess.getStateMachineAccess().getEventAssignment_1_3(), "rule__StateMachine__EventAssignment_1_3");
-			builder.put(grammarAccess.getStateMachineAccess().getEventResetAssignment_2_3(), "rule__StateMachine__EventResetAssignment_2_3");
-			builder.put(grammarAccess.getStateMachineAccess().getInstructionsAssignment_3_3(), "rule__StateMachine__InstructionsAssignment_3_3");
-			builder.put(grammarAccess.getStateMachineAccess().getStateAssignment_4(), "rule__StateMachine__StateAssignment_4");
+			builder.put(grammarAccess.getEqualityAccess().getGroup(), "rule__Equality__Group__0");
+			builder.put(grammarAccess.getEqualityAccess().getGroup_1_0(), "rule__Equality__Group_1_0__0");
+			builder.put(grammarAccess.getEqualityAccess().getGroup_1_1(), "rule__Equality__Group_1_1__0");
+			builder.put(grammarAccess.getComparisonAccess().getGroup(), "rule__Comparison__Group__0");
+			builder.put(grammarAccess.getComparisonAccess().getGroup_1_0(), "rule__Comparison__Group_1_0__0");
+			builder.put(grammarAccess.getComparisonAccess().getGroup_1_1(), "rule__Comparison__Group_1_1__0");
+			builder.put(grammarAccess.getComparisonAccess().getGroup_1_2(), "rule__Comparison__Group_1_2__0");
+			builder.put(grammarAccess.getComparisonAccess().getGroup_1_3(), "rule__Comparison__Group_1_3__0");
+			builder.put(grammarAccess.getSubAddAccess().getGroup(), "rule__SubAdd__Group__0");
+			builder.put(grammarAccess.getSubAddAccess().getGroup_1_0(), "rule__SubAdd__Group_1_0__0");
+			builder.put(grammarAccess.getSubAddAccess().getGroup_1_1(), "rule__SubAdd__Group_1_1__0");
+			builder.put(grammarAccess.getMulDivAccess().getGroup(), "rule__MulDiv__Group__0");
+			builder.put(grammarAccess.getMulDivAccess().getGroup_1_0(), "rule__MulDiv__Group_1_0__0");
+			builder.put(grammarAccess.getMulDivAccess().getGroup_1_1(), "rule__MulDiv__Group_1_1__0");
+			builder.put(grammarAccess.getPrimaryAccess().getGroup_0(), "rule__Primary__Group_0__0");
+			builder.put(grammarAccess.getStateMachineAccess().getGateAssignment_0(), "rule__StateMachine__GateAssignment_0");
+			builder.put(grammarAccess.getStateMachineAccess().getEventAssignment_4(), "rule__StateMachine__EventAssignment_4");
+			builder.put(grammarAccess.getStateMachineAccess().getEventResetAssignment_9(), "rule__StateMachine__EventResetAssignment_9");
+			builder.put(grammarAccess.getStateMachineAccess().getInstructionsAssignment_14(), "rule__StateMachine__InstructionsAssignment_14");
+			builder.put(grammarAccess.getStateMachineAccess().getStateAssignment_16(), "rule__StateMachine__StateAssignment_16");
+			builder.put(grammarAccess.getGateAccess().getBlockAssignment_3(), "rule__Gate__BlockAssignment_3");
+			builder.put(grammarAccess.getBlockAccess().getActionAssignment_0(), "rule__Block__ActionAssignment_0");
+			builder.put(grammarAccess.getBlockAccess().getStateAssignment_2(), "rule__Block__StateAssignment_2");
 			builder.put(grammarAccess.getInstructionAccess().getNameAssignment(), "rule__Instruction__NameAssignment");
 			builder.put(grammarAccess.getEventAccess().getNameAssignment(), "rule__Event__NameAssignment");
 			builder.put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_4_1(), "rule__State__ActionsAssignment_4_1");
 			builder.put(grammarAccess.getStateAccess().getMovesAssignment_5(), "rule__State__MovesAssignment_5");
-			builder.put(grammarAccess.getMoveAccess().getEventAssignment_0(), "rule__Move__EventAssignment_0");
-			builder.put(grammarAccess.getMoveAccess().getStateAssignment_2(), "rule__Move__StateAssignment_2");
+			builder.put(grammarAccess.getMoveAccess().getEventAssignment_1(), "rule__Move__EventAssignment_1");
+			builder.put(grammarAccess.getMoveAccess().getStateAssignment_3(), "rule__Move__StateAssignment_3");
+			builder.put(grammarAccess.getTriggerAccess().getEventAssignment_0(), "rule__Trigger__EventAssignment_0");
+			builder.put(grammarAccess.getEqualityAccess().getRightAssignment_1_0_2(), "rule__Equality__RightAssignment_1_0_2");
+			builder.put(grammarAccess.getEqualityAccess().getRightAssignment_1_1_2(), "rule__Equality__RightAssignment_1_1_2");
+			builder.put(grammarAccess.getComparisonAccess().getRightAssignment_1_0_2(), "rule__Comparison__RightAssignment_1_0_2");
+			builder.put(grammarAccess.getComparisonAccess().getRightAssignment_1_1_2(), "rule__Comparison__RightAssignment_1_1_2");
+			builder.put(grammarAccess.getComparisonAccess().getRightAssignment_1_2_2(), "rule__Comparison__RightAssignment_1_2_2");
+			builder.put(grammarAccess.getComparisonAccess().getRightAssignment_1_3_2(), "rule__Comparison__RightAssignment_1_3_2");
+			builder.put(grammarAccess.getSubAddAccess().getRightAssignment_1_0_2(), "rule__SubAdd__RightAssignment_1_0_2");
+			builder.put(grammarAccess.getSubAddAccess().getRightAssignment_1_1_2(), "rule__SubAdd__RightAssignment_1_1_2");
+			builder.put(grammarAccess.getMulDivAccess().getRightAssignment_1_0_2(), "rule__MulDiv__RightAssignment_1_0_2");
+			builder.put(grammarAccess.getMulDivAccess().getRightAssignment_1_1_2(), "rule__MulDiv__RightAssignment_1_1_2");
+			builder.put(grammarAccess.getNumberAccess().getValueAssignment(), "rule__Number__ValueAssignment");
 		}
 	}
 	
