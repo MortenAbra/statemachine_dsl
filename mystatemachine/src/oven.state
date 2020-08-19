@@ -1,0 +1,50 @@
+Gate block
+	turn_off =>| On
+	
+Events block 
+	off
+	on
+	cooling
+	heating
+	
+Reset block 
+	off
+
+Actions block
+	turn_on
+	turn_off
+	turn_up
+	turn_down
+
+State Off block 
+	action turn_on =>
+	event off to On state
+
+
+State On block
+	action turn_on =>
+	event off to Off state
+	
+State Heating block
+	action turn_up =>
+	event cooling to Cooling state
+
+State Cooling block
+	action turn_down =>
+	event heating to Heating state
+	
+State Cooling block
+	action turn_off =>
+	event off to Off state
+	
+State Heating block
+	action turn_off =>
+	event off to Off state
+	
+State On block
+	action turn_up =>
+	event heating to Heating state
+	
+State On block
+	action turn_down =>
+	event cooling to Cooling state
